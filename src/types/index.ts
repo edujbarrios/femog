@@ -61,6 +61,8 @@ export interface GitHubProfile {
   twitterUsername?: string;
   /** Whether this profile is shown in the "Featured" tier */
   featured: boolean;
+  /** Whether this person is the maintainer of FEMOG (pinned + special badge) */
+  maintainer?: boolean;
   joinedYear?: number;
 }
 

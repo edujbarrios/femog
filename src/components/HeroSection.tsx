@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ totalCount }: HeroSectionProps) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br from-teal-950/50 via-[#0e1a19] to-emerald-950/30 p-8 sm:p-12">
+    <div className="relative overflow-hidden rounded-2xl border border-teal-900/40 bg-gradient-to-br from-teal-950/50 via-[#0e1a19] to-emerald-950/30 p-8 sm:p-12">
       {/* Decorative glows */}
       <div
         className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-teal-600/12 blur-3xl"

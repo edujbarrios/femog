@@ -57,6 +57,7 @@ export default function RootLayout({
     <html lang="en" className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={`${inter.variable} font-sans bg-[#080e0d] text-white antialiased`}
+        suppressHydrationWarning
       >
         <Header />
         <div className="min-h-[calc(100dvh-4rem)]">{children}</div>

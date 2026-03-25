@@ -23,6 +23,7 @@ export const PROFILES: GitHubProfile[] = [
     githubUrl: 'https://github.com/edujbarrios',
     twitterUsername: 'edujbarrios',
     featured: true,
+    maintainer: true,
     joinedYear: 2019,
   },
   {

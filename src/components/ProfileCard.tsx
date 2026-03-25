@@ -6,6 +6,8 @@ import {
   BookMarked,
   ExternalLink,
   Star,
+  Globe,
+  Wrench,
 } from 'lucide-react';
 import { formatCount } from '@/lib/utils';
 import { CategoryBadge } from './CategoryBadge';
@@ -21,8 +23,18 @@ export function ProfileCard({ profile }: ProfileCardProps) {
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-teal-900/40 bg-[#0c1a18] transition-all duration-300 hover:-translate-y-1 hover:border-teal-700/40 hover:shadow-2xl hover:shadow-teal-950/60 animate-fade-in">
-      {/* Featured badge */}
-      {profile.featured && (
+      {/* Maintainer badge */}
+      {profile.maintainer && (
+        <div className="absolute right-3 top-3 z-10">
+          <span className="inline-flex items-center gap-1 rounded-full border border-teal-400/35 bg-teal-500/15 px-2 py-0.5 text-[10px] font-semibold text-teal-300">
+            <Wrench size={9} aria-hidden="true" />
+            Maintainer
+          </span>
+        </div>
+      )}
+
+      {/* Featured badge (only shown when not maintainer) */}
+      {profile.featured && !profile.maintainer && (
         <div className="absolute right-3 top-3 z-10">
           <span className="inline-flex items-center gap-1 rounded-full border border-yellow-500/25 bg-yellow-500/12 px-2 py-0.5 text-[10px] font-semibold text-yellow-400">
             <Star size={9} aria-hidden="true" />
@@ -133,15 +145,28 @@ export function ProfileCard({ profile }: ProfileCardProps) {
             </div>
           </div>
 
-          <a
-            href={profile.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-white/8 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:bg-indigo-600 hover:text-white"
-          >
-            Follow
-            <ExternalLink size={10} aria-hidden="true" />
-          </a>
+          <div className="flex items-center gap-2">
+            {profile.websiteUrl && (
+              <a
+                href={profile.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Personal website"
+                className="inline-flex items-center justify-center rounded-lg bg-white/5 p-1.5 text-white/40 transition hover:bg-white/10 hover:text-white/70"
+              >
+                <Globe size={13} aria-hidden="true" />
+              </a>
+            )}
+            <a
+              href={profile.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/8 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:bg-teal-600 hover:text-white"
+            >
+              Follow
+              <ExternalLink size={10} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </article>

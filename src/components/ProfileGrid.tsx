@@ -28,7 +28,7 @@ export function ProfileGrid({
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}
-            className="mt-6 rounded-lg border border-white/15 px-4 py-2 text-sm text-white/50 transition hover:border-white/30 hover:text-white"
+            className="mt-6 rounded-lg border border-teal-700/40 px-4 py-2 text-sm text-teal-400/80 transition hover:border-teal-500/60 hover:text-teal-300"
           >
             Clear all filters
           </button>
