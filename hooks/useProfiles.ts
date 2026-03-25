@@ -3,12 +3,11 @@
 import { useState, useMemo, useCallback } from 'react';
 import { PROFILES } from '@/data/profiles';
 import { filterProfiles } from '@/lib/utils';
-import type { FilterState, CategoryId, SortOption } from '@/types';
+import type { FilterState, CategoryId } from '@/types';
 
 const DEFAULT_FILTERS: FilterState = {
   search: '',
   categories: [],
-  sort: 'featured',
 };
 
 /**
@@ -36,10 +35,6 @@ export function useProfiles() {
     setFilters((prev) => ({ ...prev, search }));
   }, []);
 
-  const setSort = useCallback((sort: SortOption) => {
-    setFilters((prev) => ({ ...prev, sort }));
-  }, []);
-
   const clearFilters = useCallback(() => {
     setFilters(DEFAULT_FILTERS);
   }, []);
@@ -52,7 +47,6 @@ export function useProfiles() {
     filters,
     toggleCategory,
     setSearch,
-    setSort,
     clearFilters,
     hasActiveFilters,
     totalCount: PROFILES.length,

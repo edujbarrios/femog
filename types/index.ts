@@ -52,28 +52,18 @@ export interface GitHubProfile {
   categories: CategoryId[];
   /** Technology / skill keywords for search and display */
   tags: string[];
-  /** Approximate follower count (updated manually) */
-  followers: number;
-  /** Approximate public repository count */
-  repos: number;
   githubUrl: string;
   websiteUrl?: string;
   twitterUsername?: string;
-  /** Whether this profile is shown in the "Featured" tier */
-  featured: boolean;
   /** Whether this person is the maintainer of FEMOG (pinned + special badge) */
   maintainer?: boolean;
-  joinedYear?: number;
 }
 
 // ─────────────────────────────────────────────
 // Filter & Sort Types
 // ─────────────────────────────────────────────
 
-export type SortOption = 'featured' | 'followers' | 'repos' | 'name';
-
 export interface FilterState {
   search: string;
   categories: CategoryId[];
-  sort: SortOption;
 }

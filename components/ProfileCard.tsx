@@ -30,16 +30,6 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         </div>
       )}
 
-      {/* Featured badge (only shown when not maintainer) */}
-      {profile.featured && !profile.maintainer && (
-        <div className="absolute right-3 top-3 z-10">
-          <span className="inline-flex items-center gap-1 rounded-full border border-yellow-500/25 bg-yellow-500/12 px-2 py-0.5 text-[10px] font-semibold text-yellow-400">
-            <Star size={9} aria-hidden="true" />
-            Featured
-          </span>
-        </div>
-      )}
-
       {/* Top gradient accent based on primary category */}
       <div
         className="h-[3px] w-full shrink-0"

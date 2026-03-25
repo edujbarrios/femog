@@ -2,31 +2,20 @@
 
 import { CATEGORIES } from '@/data/categories';
 import { PROFILES } from '@/data/profiles';
-import type { CategoryId, SortOption } from '@/types';
+import type { CategoryId } from '@/types';
 import { cn } from '@/lib/utils';
 import { SlidersHorizontal } from 'lucide-react';
 
 interface FilterBarProps {
   selectedCategories: CategoryId[];
   onToggleCategory: (id: CategoryId) => void;
-  sort: SortOption;
-  onSortChange: (sort: SortOption) => void;
   resultCount: number;
   totalCount: number;
 }
 
-const SORT_OPTIONS: { value: SortOption; label: string }[] = [
-  { value: 'featured', label: 'Featured first' },
-  { value: 'followers', label: 'Most followed' },
-  { value: 'repos', label: 'Most repos' },
-  { value: 'name', label: 'Alphabetical' },
-];
-
 export function FilterBar({
   selectedCategories,
   onToggleCategory,
-  sort,
-  onSortChange,
   resultCount,
   totalCount,
 }: FilterBarProps) {
@@ -87,33 +76,13 @@ export function FilterBar({
         </div>
       </div>
 
-      {/* Results count + sort */}
-      <div className="flex items-center justify-between">
+      {/* Results count */}
+      <div className="flex items-center">
         <p className="text-sm text-white/35">
           Showing{' '}
           <span className="font-semibold text-white/65">{resultCount}</span>{' '}
           of {totalCount} profiles
         </p>
-
-        <div className="flex items-center gap-2">
-          <span className="hidden text-xs text-white/25 sm:inline">Sort:</span>
-          <select
-            value={sort}
-            onChange={(e) => onSortChange(e.target.value as SortOption)}
-            aria-label="Sort profiles"
-            className="cursor-pointer rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-white/60 transition focus:border-white/25 focus:outline-none hover:border-white/20"
-          >
-            {SORT_OPTIONS.map((opt) => (
-              <option
-                key={opt.value}
-                value={opt.value}
-                className="bg-[#161b22] text-white"
-              >
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        </div>
       </div>
     </div>
   );

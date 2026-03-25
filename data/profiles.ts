@@ -18,13 +18,9 @@ export const PROFILES: GitHubProfile[] = [
     location: 'Spain',
     categories: ['ai', 'fullstack', 'open-source'],
     tags: ['LLM', 'next.js', 'python', 'typescript', 'open-source'],
-    followers: 0,
-    repos: 0,
     githubUrl: 'https://github.com/edujbarrios',
     twitterUsername: 'edujbarrios',
-    featured: true,
     maintainer: true,
-    joinedYear: 2019,
   },
   {
     id: 'karpathy',
@@ -35,13 +31,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Independent',
     categories: ['ai'],
     tags: ['deep-learning', 'LLM', 'neural-networks', 'PyTorch', 'education'],
-    followers: 161000,
-    repos: 62,
     githubUrl: 'https://github.com/karpathy',
     websiteUrl: 'https://karpathy.ai',
     twitterUsername: 'karpathy',
-    featured: true,
-    joinedYear: 2012,
   },
   {
     id: 'fchollet',
@@ -52,12 +44,8 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Google',
     categories: ['ai'],
     tags: ['keras', 'tensorflow', 'deep-learning', 'python', 'AI-research'],
-    followers: 84000,
-    repos: 49,
     githubUrl: 'https://github.com/fchollet',
     twitterUsername: 'fchollet',
-    featured: true,
-    joinedYear: 2013,
   },
   {
     id: 'lucidrains',
@@ -67,11 +55,7 @@ export const PROFILES: GitHubProfile[] = [
     location: 'Hong Kong',
     categories: ['ai', 'open-source'],
     tags: ['transformers', 'attention', 'PyTorch', 'papers-with-code', 'generative-AI'],
-    followers: 63000,
-    repos: 522,
     githubUrl: 'https://github.com/lucidrains',
-    featured: true,
-    joinedYear: 2015,
   },
   {
     id: 'jph00',
@@ -82,13 +66,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'fast.ai',
     categories: ['ai', 'data-science'],
     tags: ['fastai', 'deep-learning', 'education', 'jupyter', 'python'],
-    followers: 28000,
-    repos: 56,
     githubUrl: 'https://github.com/jph00',
     websiteUrl: 'https://www.fast.ai',
     twitterUsername: 'jeremyphoward',
-    featured: false,
-    joinedYear: 2014,
   },
 
   // ─── Backend ──────────────────────────────────────────────────────────
@@ -101,13 +81,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Redis Labs (former)',
     categories: ['backend', 'systems'],
     tags: ['redis', 'C', 'databases', 'distributed-systems', 'open-source'],
-    followers: 24000,
-    repos: 68,
     githubUrl: 'https://github.com/antirez',
     websiteUrl: 'http://antirez.com',
     twitterUsername: 'antirez',
-    featured: true,
-    joinedYear: 2009,
   },
   {
     id: 'tj',
@@ -117,12 +93,8 @@ export const PROFILES: GitHubProfile[] = [
     location: 'Victoria, BC',
     categories: ['backend', 'open-source'],
     tags: ['nodejs', 'express', 'golang', 'typescript', 'cli'],
-    followers: 52000,
-    repos: 301,
     githubUrl: 'https://github.com/tj',
     twitterUsername: 'tjholowaychuk',
-    featured: false,
-    joinedYear: 2009,
   },
 
   // ─── Frontend ─────────────────────────────────────────────────────────
@@ -135,13 +107,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Vue.js / Vite',
     categories: ['frontend', 'open-source', 'fullstack'],
     tags: ['vuejs', 'vite', 'javascript', 'typescript', 'bundlers'],
-    followers: 91000,
-    repos: 152,
     githubUrl: 'https://github.com/yyx990803',
     websiteUrl: 'https://evanyou.me',
     twitterUsername: 'youyuxi',
-    featured: true,
-    joinedYear: 2010,
   },
   {
     id: 'gaearon',
@@ -152,13 +120,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Meta',
     categories: ['frontend'],
     tags: ['react', 'redux', 'javascript', 'typescript', 'open-source'],
-    followers: 83000,
-    repos: 248,
     githubUrl: 'https://github.com/gaearon',
     websiteUrl: 'https://overreacted.io',
     twitterUsername: 'dan_abramov',
-    featured: true,
-    joinedYear: 2011,
   },
   {
     id: 'Rich-Harris',
@@ -169,12 +133,8 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Vercel',
     categories: ['frontend', 'open-source'],
     tags: ['svelte', 'rollup', 'javascript', 'typescript', 'compilers'],
-    followers: 27000,
-    repos: 162,
     githubUrl: 'https://github.com/Rich-Harris',
     twitterUsername: 'Rich_Harris',
-    featured: true,
-    joinedYear: 2011,
   },
   {
     id: 'addyosmani',
@@ -185,13 +145,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Google',
     categories: ['frontend'],
     tags: ['javascript', 'web-performance', 'chrome', 'patterns', 'tooling'],
-    followers: 40000,
-    repos: 183,
     githubUrl: 'https://github.com/addyosmani',
     websiteUrl: 'https://addyosmani.com',
     twitterUsername: 'addyosmani',
-    featured: false,
-    joinedYear: 2010,
   },
 
   // ─── Full Stack ───────────────────────────────────────────────────────
@@ -204,13 +160,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'EpicWeb.dev',
     categories: ['fullstack', 'frontend'],
     tags: ['react', 'testing', 'javascript', 'typescript', 'education'],
-    followers: 42000,
-    repos: 476,
     githubUrl: 'https://github.com/kentcdodds',
     websiteUrl: 'https://kentcdodds.com',
     twitterUsername: 'kentcdodds',
-    featured: false,
-    joinedYear: 2012,
   },
   {
     id: 'rauchg',
@@ -221,12 +173,8 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Vercel',
     categories: ['fullstack', 'backend'],
     tags: ['nextjs', 'nodejs', 'javascript', 'typescript', 'deployment'],
-    followers: 33000,
-    repos: 211,
     githubUrl: 'https://github.com/rauchg',
     twitterUsername: 'rauchg',
-    featured: false,
-    joinedYear: 2010,
   },
   {
     id: 'DHH',
@@ -237,13 +185,9 @@ export const PROFILES: GitHubProfile[] = [
     company: '37signals',
     categories: ['fullstack', 'backend'],
     tags: ['rails', 'ruby', 'hotwire', 'web-development', 'databases'],
-    followers: 37000,
-    repos: 108,
     githubUrl: 'https://github.com/DHH',
     websiteUrl: 'https://dhh.dk',
     twitterUsername: 'dhh',
-    featured: false,
-    joinedYear: 2008,
   },
 
   // ─── DevOps / SRE ─────────────────────────────────────────────────────
@@ -256,12 +200,8 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Google',
     categories: ['devops', 'cloud'],
     tags: ['kubernetes', 'google-cloud', 'golang', 'containers', 'infrastructure'],
-    followers: 22000,
-    repos: 193,
     githubUrl: 'https://github.com/kelseyhightower',
     twitterUsername: 'kelseyhightower',
-    featured: true,
-    joinedYear: 2012,
   },
   {
     id: 'jessfraz',
@@ -272,13 +212,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Oxide Computer Company',
     categories: ['devops', 'security', 'systems'],
     tags: ['containers', 'docker', 'linux', 'golang', 'security'],
-    followers: 15000,
-    repos: 467,
     githubUrl: 'https://github.com/jessfraz',
     websiteUrl: 'https://jess.dev',
     twitterUsername: 'jessfraz',
-    featured: false,
-    joinedYear: 2012,
   },
 
   // ─── Systems ──────────────────────────────────────────────────────────
@@ -291,11 +227,7 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Linux Foundation',
     categories: ['systems', 'open-source'],
     tags: ['linux', 'kernel', 'git', 'C', 'operating-systems'],
-    followers: 215000,
-    repos: 7,
     githubUrl: 'https://github.com/torvalds',
-    featured: true,
-    joinedYear: 2011,
   },
   {
     id: 'BurntSushi',
@@ -306,11 +238,7 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Astral',
     categories: ['systems', 'open-source'],
     tags: ['rust', 'ripgrep', 'performance', 'regex', 'cli'],
-    followers: 11000,
-    repos: 166,
     githubUrl: 'https://github.com/BurntSushi',
-    featured: false,
-    joinedYear: 2010,
   },
 
   // ─── Data Science ─────────────────────────────────────────────────────
@@ -323,13 +251,9 @@ export const PROFILES: GitHubProfile[] = [
     company: 'Apple',
     categories: ['data-science', 'ai'],
     tags: ['python', 'pytorch', 'scikit-learn', 'machine-learning', 'education'],
-    followers: 31000,
-    repos: 84,
     githubUrl: 'https://github.com/rasbt',
     websiteUrl: 'https://sebastianraschka.com',
     twitterUsername: 'rasbt',
-    featured: false,
-    joinedYear: 2013,
   },
 
   // ─── Security ─────────────────────────────────────────────────────────
@@ -341,11 +265,7 @@ export const PROFILES: GitHubProfile[] = [
     location: 'Switzerland',
     categories: ['security'],
     tags: ['penetration-testing', 'payloads', 'web-security', 'ctf', 'infosec'],
-    followers: 18000,
-    repos: 60,
     githubUrl: 'https://github.com/swisskyrepo',
-    featured: false,
-    joinedYear: 2015,
   },
 
   // ─── Open Source ──────────────────────────────────────────────────────
@@ -357,20 +277,11 @@ export const PROFILES: GitHubProfile[] = [
     location: 'Bangkok, Thailand',
     categories: ['open-source', 'frontend', 'backend'],
     tags: ['nodejs', 'typescript', 'npm', 'javascript', 'cli'],
-    followers: 67000,
-    repos: 1100,
     githubUrl: 'https://github.com/sindresorhus',
     websiteUrl: 'https://sindresorhus.com',
     twitterUsername: 'sindresorhus',
-    featured: true,
-    joinedYear: 2011,
   },
 ];
 
-/** Returns only featured profiles, sorted by follower count. */
-export const getFeaturedProfiles = (): GitHubProfile[] =>
-  PROFILES.filter((p) => p.featured).sort((a, b) => b.followers - a.followers);
-
-/** Returns profiles matching a given category. */
 export const getProfilesByCategory = (categoryId: string): GitHubProfile[] =>
   PROFILES.filter((p) => p.categories.includes(categoryId as never));

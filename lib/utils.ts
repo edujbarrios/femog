@@ -48,23 +48,11 @@ export function filterProfiles(
     );
   }
 
-  // Sort — maintainer is always pinned first
+  // Sort — maintainer pinned first, then alphabetical
   result.sort((a, b) => {
-    if (a.id === 'edujbarrios') return -1;
-    if (b.id === 'edujbarrios') return 1;
-    switch (filters.sort) {
-      case 'followers':
-        return b.followers - a.followers;
-      case 'repos':
-        return b.repos - a.repos;
-      case 'name':
-        return a.name.localeCompare(b.name);
-      case 'featured':
-      default:
-        if (a.featured && !b.featured) return -1;
-        if (!a.featured && b.featured) return 1;
-        return b.followers - a.followers;
-    }
+    if (a.maintainer) return -1;
+    if (b.maintainer) return 1;
+    return a.name.localeCompare(b.name);
   });
 
   return result;

@@ -3,7 +3,7 @@ import { CATEGORIES } from '@/data/categories';
 import { Users, Tag, Star } from 'lucide-react';
 
 export function StatsBar() {
-  const featuredCount = PROFILES.filter((p) => p.featured).length;
+  const openSourceCount = PROFILES.filter((p) => p.categories.includes('open-source')).length;
 
   const stats = [
     {
@@ -20,8 +20,8 @@ export function StatsBar() {
     },
     {
       icon: Star,
-      label: 'Featured picks',
-      value: featuredCount,
+      label: 'Open-source profiles',
+      value: openSourceCount,
       color: 'text-yellow-400',
     },
   ];

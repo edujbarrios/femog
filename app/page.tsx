@@ -13,7 +13,6 @@ export default function HomePage() {
     filters,
     toggleCategory,
     setSearch,
-    setSort,
     clearFilters,
     hasActiveFilters,
     totalCount,
@@ -34,8 +33,6 @@ export default function HomePage() {
           <FilterBar
             selectedCategories={filters.categories}
             onToggleCategory={toggleCategory}
-            sort={filters.sort}
-            onSortChange={setSort}
             resultCount={profiles.length}
             totalCount={totalCount}
           />
