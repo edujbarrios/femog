@@ -72,8 +72,8 @@ Contributions are very welcome! The two most common ways to contribute are addin
   company: 'Company Name',      // optional
   categories: ['backend'],      // one or more CategoryId values (see below)
   tags: ['nodejs', 'golang'],   // skill / tech keywords shown on the card
-  followers: 12000,             // approximate GitHub follower count
-  repos: 80,                    // approximate public repository count
+  followers: 12000,             // optional — approximate GitHub follower count
+  repos: 80,                    // optional — approximate public repository count
   githubUrl: 'https://github.com/username',
   websiteUrl: 'https://example.com',   // optional
   twitterUsername: 'handle',           // optional, without the @

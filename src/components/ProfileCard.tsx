@@ -135,14 +135,18 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         {/* Stats + CTA row */}
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5 text-xs text-white/35">
-              <Users size={12} aria-hidden="true" />
-              <span>{formatCount(profile.followers)}</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs text-white/35">
-              <BookMarked size={12} aria-hidden="true" />
-              <span>{formatCount(profile.repos)} repos</span>
-            </div>
+            {profile.followers > 0 && (
+              <div className="flex items-center gap-1.5 text-xs text-white/35">
+                <Users size={12} aria-hidden="true" />
+                <span>{formatCount(profile.followers)}</span>
+              </div>
+            )}
+            {profile.repos > 0 && (
+              <div className="flex items-center gap-1.5 text-xs text-white/35">
+                <BookMarked size={12} aria-hidden="true" />
+                <span>{formatCount(profile.repos)} repos</span>
+              </div>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
