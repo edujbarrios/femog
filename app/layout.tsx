@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: 'FEMOG — Find Engineering Masters on GitHub',
   description:
     'A curated dark-mode directory of exceptional software engineers, AI researchers, and open source contributors on GitHub. Filter by role and discover who to follow.',
+  icons: {
+    icon: '/assets/logo.png',
+    shortcut: '/assets/logo.png',
+    apple: '/assets/logo.png',
+  },
   keywords: [
     'github',
     'engineers',

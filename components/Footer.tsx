@@ -1,4 +1,5 @@
-import { Github, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -9,7 +10,15 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center justify-center gap-2 sm:justify-start">
-              <span className="text-base">⭐</span>
+              <div className="flex h-6 w-6 items-center justify-center rounded-md overflow-hidden bg-white">
+                <Image
+                  src="/assets/logo.png"
+                  alt="FEMOG logo"
+                  width={24}
+                  height={24}
+                  className="object-contain"
+                />
+              </div>
               <span className="font-bold text-white">FEMOG</span>
             </div>
             <p className="mt-1 text-xs text-white/35">

@@ -1,5 +1,9 @@
 # FEMOG — Find Engineering Masters on GitHub
 
+<p align="center">
+  <img src="public/assets/logo.png" alt="FEMOG Logo" width="120" />
+</p>
+
 > A curated, dark-mode directory to discover exceptional software engineers on GitHub — organized by engineering discipline.
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://femog.vercel.app)
