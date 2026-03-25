@@ -8,13 +8,14 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl overflow-hidden bg-white shadow-lg shadow-teal-500/15 transition group-hover:shadow-teal-500/30">
+          <div className="flex h-12 w-12 items-center justify-center">
             <Image
               src="/assets/logo.png"
               alt="FEMOG logo"
-              width={36}
-              height={36}
-              className="object-contain"
+              width={48}
+              height={48}
+              style={{ width: '48px', height: '48px' }}
+              className="drop-shadow-[0_0_8px_rgba(45,212,191,0.25)]"
               priority
             />
           </div>

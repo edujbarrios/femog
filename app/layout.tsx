@@ -60,6 +60,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="dark" />
+      </head>
       <body
         className={`${inter.variable} font-sans bg-[#080e0d] text-white antialiased`}
         suppressHydrationWarning
