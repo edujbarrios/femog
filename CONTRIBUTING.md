@@ -28,43 +28,70 @@ Thank you for considering contributing to FEMOG! This document explains how to a
    git checkout -b feat/add-profile-username
    ```
 
-2. Edit `src/data/profiles.ts` and add an object to the `PROFILES` array:
+2. Open `data/profiles.ts` and append an object to the `PROFILES` array following this exact shape:
+
    ```typescript
    {
-     id: 'username',
-     name: 'Full Name',
-     username: 'github-username',
-     bio: '...',
-     categories: ['backend'],
-     tags: ['node', 'golang'],
-     followers: 12000,
-     repos: 80,
+     // Required fields
+     id: 'github-username',               // unique, lowercase, URL-safe (use the GitHub username)
+     name: 'Full Name',                   // display name
+     username: 'github-username',         // GitHub handle (no @)
+     bio: 'Short description...',         // 1–2 sentences about the engineer
+     categories: ['backend'],             // one or more CategoryIds (see valid values below)
+     tags: ['node', 'golang', 'rust'],    // tech keywords shown on the card
+     followers: 12000,                    // approximate follower count (update manually)
+     repos: 80,                           // approximate public repo count
      githubUrl: 'https://github.com/username',
-     featured: false,
+     featured: false,                     // set true only for widely-known profiles
+
+     // Optional fields
+     location: 'City, Country',           // omit if unknown
+     company: 'Company or @org',          // omit if unknown
+     websiteUrl: 'https://example.com',   // personal site or blog
+     twitterUsername: 'handle',           // Twitter/X handle (no @)
+     joinedYear: 2015,                    // year they joined GitHub
    }
    ```
 
-3. Submit a pull request with the title `feat: add profile for @username`
+3. **Valid `categories` values** (defined in `types/index.ts`):
+
+   | Value | Label |
+   |---|---|
+   | `'ai'` | AI / Machine Learning |
+   | `'backend'` | Backend Engineering |
+   | `'frontend'` | Frontend Development |
+   | `'fullstack'` | Full-Stack |
+   | `'devops'` | DevOps / Infrastructure |
+   | `'mobile'` | Mobile Development |
+   | `'security'` | Security Engineering |
+   | `'data-science'` | Data Science |
+   | `'systems'` | Systems Programming |
+   | `'cloud'` | Cloud Architecture |
+   | `'open-source'` | Open Source |
+
+   A profile can belong to **multiple** categories: `categories: ['ai', 'open-source']`.
+
+4. Submit a pull request with the title `feat: add profile for @username`.
 
 ---
 
 ## Adding a Category
 
-1. Add the new value to the `CategoryId` union in `src/types/index.ts`:
+1. Add the new value to the `CategoryId` union in `types/index.ts`:
    ```typescript
    export type CategoryId = 'ai' | 'backend' | ... | 'your-new-category';
    ```
 
-2. Add the category definition in `src/data/categories.ts`:
+2. Add the category definition in `data/categories.ts`:
    ```typescript
    {
      id: 'your-new-category',
      label: 'Human-Readable Label',
-     description: 'One sentence describing this category',
-     color: '#hex',         // text/icon color
-     bgColor: 'rgba(...)',  // badge background (semi-transparent)
+     description: 'One sentence describing this category.',
+     color: '#2dd4bf',        // text / icon color (hex)
+     bgColor: 'rgba(...)',    // badge background (semi-transparent)
      borderColor: 'rgba(...)',
-     icon: '🔧',            // emoji
+     icon: '🔧',              // emoji shown in the filter bar
    }
    ```
 
@@ -81,9 +108,9 @@ npm install
 npm run dev
 ```
 
-Run type-checking:
+Run type-checking before submitting a PR:
 ```bash
-npm run type-check
+npx tsc --noEmit
 ```
 
 ---
@@ -101,11 +128,11 @@ npm run type-check
 ## Commit Convention
 
 ```
-feat:   add new feature
-fix:    fix a bug
-style:  UI/CSS changes (no logic changes)
-chore:  tooling, config, dependencies
-docs:   documentation only
+feat:     add new feature
+fix:      fix a bug
+style:    UI/CSS changes (no logic changes)
+chore:    tooling, config, dependencies
+docs:     documentation only
 refactor: code restructuring without behavior changes
 ```
 
