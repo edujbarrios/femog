@@ -38,7 +38,6 @@
 - **11 engineering categories** — AI, Backend, Frontend, Full Stack, DevOps, Mobile, Security, Data Science, Systems, Cloud, Open Source
 - **Instant client-side search** — filter by name, username, bio, tags, company, or location
 - **Multi-category filtering** — combine multiple role filters at once
-- **Sort options** — by featured status, followers, repositories, or alphabetically
 - **Fully parameterized** — add new profiles and labels in minutes, no logic changes required
 - **No API calls** — all data is statically curated; zero latency, zero cost
 - **Shareable** — fully static, deployed edge-globally on Vercel
@@ -77,26 +76,25 @@ Contributions are very welcome! The two most common ways to contribute are addin
 
 ### Adding a New Profile
 
-1. Open `src/data/profiles.ts`
-2. Append a new object to the `PROFILES` array following this shape:
+1. Open `data/profiles.ts`
+2. Append a new object to the `PROFILES` array following this exact shape:
 
 ```typescript
 {
-  id: 'github-username',        // unique kebab-case identifier
+  // Required
+  id: 'github-username',               // unique, URL-safe (use the GitHub username)
   name: 'Full Name',
-  username: 'github-username',
-  bio: 'Short bio (1–2 sentences describing their work)',
-  location: 'City, Country',    // optional
-  company: 'Company Name',      // optional
-  categories: ['backend'],      // one or more CategoryId values (see below)
-  tags: ['nodejs', 'golang'],   // skill / tech keywords shown on the card
-  followers: 12000,             // optional — approximate GitHub follower count
-  repos: 80,                    // optional — approximate public repository count
+  username: 'github-username',         // GitHub handle (no @)
+  bio: 'Short bio (1–2 sentences)',
+  categories: ['backend'],             // one or more CategoryId values (see below)
+  tags: ['nodejs', 'golang'],          // skill / tech keywords shown on the card
   githubUrl: 'https://github.com/username',
-  websiteUrl: 'https://example.com',   // optional
-  twitterUsername: 'handle',           // optional, without the @
-  featured: false,                     // set true to pin in the "Featured" tier
-  joinedYear: 2016,                    // optional
+
+  // Optional
+  location: 'City, Country',
+  company: 'Company or @org',
+  websiteUrl: 'https://example.com',
+  twitterUsername: 'handle',           // without the @
 }
 ```
 
@@ -108,7 +106,7 @@ Contributions are very welcome! The two most common ways to contribute are addin
 
 Adding a new engineering discipline label takes two small steps:
 
-**Step 1 — Register the ID** in `src/types/index.ts`:
+**Step 1 — Register the ID** in `types/index.ts`:
 
 ```typescript
 // Before
@@ -120,7 +118,7 @@ export type CategoryId =
   | 'ai' | 'backend' | 'frontend' | ... | 'your-new-label';
 ```
 
-**Step 2 — Add the display definition** in `src/data/categories.ts`:
+**Step 2 — Add the display definition** in `data/categories.ts`:
 
 ```typescript
 {
@@ -136,7 +134,7 @@ export type CategoryId =
 
 That's it — the filter pill, profile badge, and category count will all appear automatically. No component changes required.
 
-3. Tag any existing profiles that belong to the new category by adding your new ID to their `categories` array in `src/data/profiles.ts`.
+3. Tag any existing profiles that belong to the new category by adding your new ID to their `categories` array in `data/profiles.ts`.
 
 ### Commit Convention
 
@@ -178,9 +176,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guidelines.
 │   ├── categories.ts     # Category definitions (colors, icons, descriptions)
 │   └── profiles.ts       # Engineer profile entries
 ├── hooks/
-│   └── useProfiles.ts    # Filtering, sorting, and search state
+│   └── useProfiles.ts    # Filtering and search state
 ├── lib/
-│   └── utils.ts          # filterProfiles(), formatCount(), cn()
+│   └── utils.ts          # filterProfiles(), cn()
 └── types/
     └── index.ts          # TypeScript type definitions
 ```

@@ -5,7 +5,7 @@ Thank you for considering contributing to FEMOG! This document explains how to a
 ## Ways to Contribute
 
 - **Suggest or add a GitHub profile** — the most common contribution
-- **Fix an outdated profile** — bios, follower counts, companies change over time
+- **Fix an outdated profile** — bios, companies, or links change over time
 - **Add a new category** — if a prominent engineering discipline is missing
 - **Improve the UI** — accessibility, performance, or design enhancements
 - **Report a bug** — open an issue with steps to reproduce
@@ -32,24 +32,20 @@ Thank you for considering contributing to FEMOG! This document explains how to a
 
    ```typescript
    {
-     // Required fields
-     id: 'github-username',               // unique, lowercase, URL-safe (use the GitHub username)
-     name: 'Full Name',                   // display name
+     // Required
+     id: 'github-username',               // unique, URL-safe (use the GitHub username)
+     name: 'Full Name',
      username: 'github-username',         // GitHub handle (no @)
      bio: 'Short description...',         // 1–2 sentences about the engineer
      categories: ['backend'],             // one or more CategoryIds (see valid values below)
      tags: ['node', 'golang', 'rust'],    // tech keywords shown on the card
-     followers: 12000,                    // approximate follower count (update manually)
-     repos: 80,                           // approximate public repo count
      githubUrl: 'https://github.com/username',
-     featured: false,                     // set true only for widely-known profiles
 
-     // Optional fields
-     location: 'City, Country',           // omit if unknown
-     company: 'Company or @org',          // omit if unknown
-     websiteUrl: 'https://example.com',   // personal site or blog
-     twitterUsername: 'handle',           // Twitter/X handle (no @)
-     joinedYear: 2015,                    // year they joined GitHub
+     // Optional — omit any fields that are unknown or not applicable
+     location: 'City, Country',
+     company: 'Company or @org',
+     websiteUrl: 'https://example.com',
+     twitterUsername: 'handle',           // without the @
    }
    ```
 
