@@ -11,6 +11,21 @@ import type { GitHubProfile } from '@/types';
 export const PROFILES: GitHubProfile[] = [
   // ─── AI / Machine Learning ────────────────────────────────────────────
   {
+    id: 'edujbarrios',
+    name: 'Eduardo J. Barrios',
+    username: 'edujbarrios',
+    bio: 'AI engineer and open source builder. Creator of FEMOG. Building at the intersection of LLMs, full-stack AI systems, and developer tooling.',
+    location: 'Spain',
+    categories: ['ai', 'fullstack', 'open-source'],
+    tags: ['LLM', 'next.js', 'python', 'typescript', 'open-source'],
+    followers: 0,
+    repos: 0,
+    githubUrl: 'https://github.com/edujbarrios',
+    twitterUsername: 'edujbarrios',
+    featured: true,
+    joinedYear: 2019,
+  },
+  {
     id: 'karpathy',
     name: 'Andrej Karpathy',
     username: 'karpathy',
