@@ -24,7 +24,7 @@ export default function AboutPage() {
         {/* What is FEMOG */}
         <section>
           <h2 className="mb-4 flex items-center gap-2.5 text-xl font-semibold text-white">
-            <BookOpen size={20} className="text-indigo-400" />
+            <BookOpen size={20} className="text-teal-400" />
             What is FEMOG?
           </h2>
           <div className="space-y-3 text-[15px] leading-relaxed text-white/55">
@@ -47,7 +47,7 @@ export default function AboutPage() {
         {/* Philosophy */}
         <section>
           <h2 className="mb-4 flex items-center gap-2.5 text-xl font-semibold text-white">
-            <Code2 size={20} className="text-purple-400" />
+            <Code2 size={20} className="text-emerald-400" />
             Design Philosophy
           </h2>
           <ul className="space-y-2 text-[15px] leading-relaxed text-white/55">
@@ -59,7 +59,7 @@ export default function AboutPage() {
               'Open source — contributions are welcome via pull request.',
             ].map((point) => (
               <li key={point} className="flex gap-2.5">
-                <span className="mt-1 shrink-0 text-indigo-400">•</span>
+                <span className="mt-1 shrink-0 text-teal-400">•</span>
                 {point}
               </li>
             ))}
@@ -78,7 +78,7 @@ export default function AboutPage() {
               <img
                 src="https://github.com/edujbarrios.png?size=96"
                 alt="Eduardo J. Barrios"
-                className="h-16 w-16 rounded-full ring-2 ring-indigo-500/25"
+                className="h-16 w-16 rounded-full ring-2 ring-teal-500/25"
                 width={64}
                 height={64}
               />
@@ -91,7 +91,7 @@ export default function AboutPage() {
                   href="https://github.com/edujbarrios"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-400 transition hover:text-indigo-300"
+                  className="mt-2 inline-flex items-center gap-1.5 text-sm text-teal-400 transition hover:text-teal-300"
                 >
                   <Github size={14} />
                   View GitHub Profile
@@ -113,7 +113,7 @@ export default function AboutPage() {
               href="https://github.com/edujbarrios/femog"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-400 transition hover:text-indigo-300"
+              className="text-teal-400 transition hover:text-teal-300"
             >
               GitHub repository
             </a>
@@ -122,7 +122,7 @@ export default function AboutPage() {
               href="https://github.com/edujbarrios/femog/blob/main/CONTRIBUTING.md"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-400 transition hover:text-indigo-300"
+              className="text-teal-400 transition hover:text-teal-300"
             >
               CONTRIBUTING.md
             </a>{' '}

@@ -7,7 +7,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-base shadow-lg shadow-indigo-500/25 transition group-hover:shadow-indigo-500/40">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 text-base shadow-lg shadow-teal-500/25 transition group-hover:shadow-teal-500/40">
             ⭐
           </div>
           <div className="leading-tight">

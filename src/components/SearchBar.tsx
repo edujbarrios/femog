@@ -29,7 +29,7 @@ export function SearchBar({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         aria-label="Search profiles"
-        className="h-11 w-full rounded-xl border border-white/10 bg-white/5 pl-11 pr-10 text-sm text-white placeholder:text-white/25 transition focus:border-indigo-500/50 focus:bg-white/8 focus:outline-none focus:ring-1 focus:ring-indigo-500/25"
+        className="h-11 w-full rounded-xl border border-white/10 bg-white/5 pl-11 pr-10 text-sm text-white placeholder:text-white/25 transition focus:border-teal-500/50 focus:bg-white/8 focus:outline-none focus:ring-1 focus:ring-teal-500/25"
       />
 
       {value && (

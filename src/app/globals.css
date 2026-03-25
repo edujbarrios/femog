@@ -4,11 +4,14 @@
 
 /* ── CSS Variables ───────────────────────────────────── */
 :root {
-  --bg: #0a0e1a;
-  --surface: #111827;
+  --bg: #080e0d;
+  --surface: #0e1a19;
   --border: rgba(255, 255, 255, 0.08);
   --text-primary: #e6edf3;
   --text-muted: rgba(255, 255, 255, 0.45);
+  --brand: #2dd4bf;
+  --brand-dim: rgba(45, 212, 191, 0.15);
+  --brand-border: rgba(45, 212, 191, 0.35);
 }
 
 /* ── Base ────────────────────────────────────────────── */
@@ -51,13 +54,13 @@ body {
 
 /* ── Select dropdowns in dark mode ───────────────────── */
 select option {
-  background-color: #161b22;
+  background-color: #0c1a18;
   color: #e6edf3;
 }
 
 /* ── Focus visible ───────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid rgba(99, 102, 241, 0.6);
+  outline: 2px solid rgba(45, 212, 191, 0.6);
   outline-offset: 2px;
 }
 

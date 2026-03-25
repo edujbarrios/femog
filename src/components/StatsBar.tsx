@@ -10,13 +10,13 @@ export function StatsBar() {
       icon: Users,
       label: 'Curated profiles',
       value: PROFILES.length,
-      color: 'text-indigo-400',
+      color: 'text-teal-400',
     },
     {
       icon: Tag,
       label: 'Engineering roles',
       value: CATEGORIES.length,
-      color: 'text-purple-400',
+      color: 'text-emerald-400',
     },
     {
       icon: Star,

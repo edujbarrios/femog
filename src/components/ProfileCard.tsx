@@ -20,7 +20,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
   const primaryCategory = getCategoryById(profile.categories[0]);
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/8 bg-[#111827] transition-all duration-300 hover:-translate-y-1 hover:border-white/18 hover:shadow-2xl hover:shadow-black/50 animate-fade-in">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-teal-900/40 bg-[#0c1a18] transition-all duration-300 hover:-translate-y-1 hover:border-teal-700/40 hover:shadow-2xl hover:shadow-teal-950/60 animate-fade-in">
       {/* Featured badge */}
       {profile.featured && (
         <div className="absolute right-3 top-3 z-10">
@@ -37,7 +37,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         style={{
           background: primaryCategory
             ? `linear-gradient(90deg, ${primaryCategory.color}70, ${primaryCategory.color}10)`
-            : 'linear-gradient(90deg, #6366f170, #6366f110)',
+            : 'linear-gradient(90deg, #2dd4bf70, #2dd4bf10)',
         }}
         aria-hidden="true"
       />
@@ -51,7 +51,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
               alt={`${profile.name}'s GitHub avatar`}
               width={52}
               height={52}
-              className="rounded-full ring-2 ring-white/8 ring-offset-2 ring-offset-[#111827]"
+              className="rounded-full ring-2 ring-teal-700/25 ring-offset-2 ring-offset-[#0c1a18]"
               unoptimized
             />
           </div>
@@ -63,7 +63,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-0.5 inline-block text-sm text-indigo-400 transition hover:text-indigo-300"
+              className="mt-0.5 inline-block text-sm text-teal-400 transition hover:text-teal-300"
             >
               @{profile.username}
             </a>
