@@ -1,6 +1,10 @@
+# FEMOG — Find Engineering Masters on GitHub
+
 <p align="center">
-  <img src="public/assets/logo.png" alt="FEMOG Logo" width="220" style="display:block;margin:0 auto 8px;" />
-  <strong style="font-size:1.6em;">FEMOG — Find Engineering Masters on GitHub</strong><br/>
+  <img src="public/assets/logo.png" alt="FEMOG Logo" width="300" style="margin-bottom: 16px;" />
+</p>
+
+<p align="center">
   <em>A curated, dark-mode directory to discover exceptional software engineers on GitHub — organized by engineering discipline.</em>
 </p>
 
