@@ -138,7 +138,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guidelines.
 ## Project Structure
 
 ```
-src/
 ├── app/                  # Next.js App Router pages
 │   ├── about/            # About page
 │   ├── globals.css       # Global styles + Tailwind directives
