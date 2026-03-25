@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pip install -r requirements.txt && reflex export --frontend-only --no-zip",
+  "outputDirectory": ".web/out",
+  "installCommand": "pip install reflex",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

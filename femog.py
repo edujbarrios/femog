@@ -40,7 +40,7 @@ app = rx.App(
             content="Discover AI, backend, frontend, fullstack and more top GitHub engineers.",
         ),
         rx.el.meta(name="twitter:card", content="summary_large_image"),
-        rx.el.meta(name="twitter:creator", content="@exujbarrios"),
+        rx.el.meta(name="twitter:creator", content="@edujbarrios"),
     ],
 )
 

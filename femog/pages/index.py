@@ -185,7 +185,7 @@ def _footer() -> rx.Component:
                     font_family=FONT_SANS,
                 ),
                 rx.link(
-                    "exujbarrios",
+                    "edujbarrios",
                     href="https://github.com/exujbarrios",
                     is_external=True,
                     font_size=SIZE["xs"],
