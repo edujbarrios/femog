@@ -2,14 +2,11 @@ import Image from 'next/image';
 import {
   MapPin,
   Building2,
-  Users,
-  BookMarked,
   ExternalLink,
   Star,
   Globe,
   Wrench,
 } from 'lucide-react';
-import { formatCount } from '@/lib/utils';
 import { CategoryBadge } from './CategoryBadge';
 import { getCategoryById } from '@/data/categories';
 import type { GitHubProfile } from '@/types';
@@ -132,23 +129,8 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         {/* Divider */}
         <div className="mt-4 border-t border-white/5" />
 
-        {/* Stats + CTA row */}
-        <div className="mt-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {profile.followers > 0 && (
-              <div className="flex items-center gap-1.5 text-xs text-white/35">
-                <Users size={12} aria-hidden="true" />
-                <span>{formatCount(profile.followers)}</span>
-              </div>
-            )}
-            {profile.repos > 0 && (
-              <div className="flex items-center gap-1.5 text-xs text-white/35">
-                <BookMarked size={12} aria-hidden="true" />
-                <span>{formatCount(profile.repos)} repos</span>
-              </div>
-            )}
-          </div>
-
+        {/* CTA row */}
+        <div className="mt-4 flex items-center justify-end">
           <div className="flex items-center gap-2">
             {profile.websiteUrl && (
               <a
