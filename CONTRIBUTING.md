@@ -1,91 +1,114 @@
 # Contributing to FEMOG
 
-Thanks for taking the time to contribute! FEMOG is designed so that the most common contributions — **adding a profile** or **adding a specialty label** — require editing exactly **one file** and zero app logic.
+Thank you for considering contributing to FEMOG! This document explains how to add profiles, categories, and other improvements.
+
+## Ways to Contribute
+
+- **Suggest or add a GitHub profile** — the most common contribution
+- **Fix an outdated profile** — bios, follower counts, companies change over time
+- **Add a new category** — if a prominent engineering discipline is missing
+- **Improve the UI** — accessibility, performance, or design enhancements
+- **Report a bug** — open an issue with steps to reproduce
 
 ---
 
-## 📋 Table of Contents
+## Adding a Profile
 
-- [Code of Conduct](#code-of-conduct)
-- [How to Add a Profile](#how-to-add-a-profile)
-- [How to Add a Label](#how-to-add-a-label)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Development Setup](#development-setup)
+### Criteria for Inclusion
 
----
+- The engineer has made **significant open source contributions** or published **influential technical work**
+- Their GitHub profile is **public and active**
+- They are recognized in their domain (follower count is a useful signal, not a hard rule)
+- The profile belongs to at least one of the existing categories
 
-## Code of Conduct
+### Steps
 
-Be kind. Focus on the content, not the person. Constructive criticism only.
+1. Fork the repository and create a new branch:
+   ```bash
+   git checkout -b feat/add-profile-username
+   ```
 
----
+2. Edit `src/data/profiles.ts` and add an object to the `PROFILES` array:
+   ```typescript
+   {
+     id: 'username',
+     name: 'Full Name',
+     username: 'github-username',
+     bio: '...',
+     categories: ['backend'],
+     tags: ['node', 'golang'],
+     followers: 12000,
+     repos: 80,
+     githubUrl: 'https://github.com/username',
+     featured: false,
+   }
+   ```
 
-## How to Add a Profile
-
-1. Open `femog/data/profiles.py`.
-2. Append a new dict to the `PROFILES` list following this schema:
-
-```python
-{
-    "login":    "githubusername",    # exact GitHub username
-    "name":     "Full Name",
-    "bio":      "Short description, max ~140 chars",
-    "tags":     ["backend", "rust"], # choose from labels.py ids
-    "location": "City, Country",     # optional, "" if unknown
-    "twitter":  "handle",            # optional, "" if none (no @)
-    "website":  "https://...",       # optional, "" if none
-    "notable":  "Their standout project or contribution",
-},
-```
-
-3. Save, run `reflex run`, verify the card appears correctly.
-4. Open a PR with the title `feat(profiles): add @githubusername`.
-
-### Profile quality bar
-
-- The person must have **meaningful public contributions** on GitHub.
-- Bio and notable should be factual and neutral.
-- Do not add yourself unless your work is genuinely notable.
+3. Submit a pull request with the title `feat: add profile for @username`
 
 ---
 
-## How to Add a Label
+## Adding a Category
 
-1. Open `femog/data/labels.py`.
-2. Append a new dict to the `LABELS` list:
+1. Add the new value to the `CategoryId` union in `src/types/index.ts`:
+   ```typescript
+   export type CategoryId = 'ai' | 'backend' | ... | 'your-new-category';
+   ```
 
-```python
-{
-    "id":          "your-label-id",       # lowercase, hyphen-separated, unique
-    "name":        "Display Name",
-    "color":       "#hexcolor",           # badge background
-    "text":        "#ffffff",             # badge text (ensure contrast)
-    "icon":        "🔧",                  # single emoji or character
-    "description": "One-line description shown in the sidebar",
-},
-```
+2. Add the category definition in `src/data/categories.ts`:
+   ```typescript
+   {
+     id: 'your-new-category',
+     label: 'Human-Readable Label',
+     description: 'One sentence describing this category',
+     color: '#hex',         // text/icon color
+     bgColor: 'rgba(...)',  // badge background (semi-transparent)
+     borderColor: 'rgba(...)',
+     icon: '🔧',            // emoji
+   }
+   ```
 
-3. Use the new `id` in profile `tags` lists.
-4. Open a PR with the title `feat(labels): add <label-name> specialty`.
-
----
-
-## Pull Request Guidelines
-
-- Keep PRs small and focused (one profile or one label per PR is ideal).
-- Use the issue templates in `.github/ISSUE_TEMPLATE/` when applicable.
-- Don't refactor unrelated code in the same PR.
-- Make sure `reflex run` starts without errors before submitting.
+3. Tag relevant existing profiles with the new category ID.
 
 ---
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/exujbarrios/femog.git
+git clone https://github.com/edujbarrios/femog.git
 cd femog
-pip install -r requirements.txt
-reflex run
+npm install
+npm run dev
 ```
 
-The dev server runs at `http://localhost:3000` with hot-reload.
+Run type-checking:
+```bash
+npm run type-check
+```
+
+---
+
+## Code Style
+
+- TypeScript strict mode is enforced — no `any`, no implicit types
+- Follow the existing component patterns and file structure
+- Use Tailwind CSS for all styling; avoid inline styles except for dynamic category colors
+- Keep components small, focused, and composable
+- No new dependencies without discussion
+
+---
+
+## Commit Convention
+
+```
+feat:   add new feature
+fix:    fix a bug
+style:  UI/CSS changes (no logic changes)
+chore:  tooling, config, dependencies
+docs:   documentation only
+refactor: code restructuring without behavior changes
+```
+
+---
+
+Made with ❤️ by [Eduardo J. Barrios](https://github.com/edujbarrios)

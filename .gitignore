@@ -1,41 +1,67 @@
-# ── Python ──────────────────────────────────────────────────
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.egg
-*.egg-info/
-dist/
+# ── Dependencies ────────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ── Build outputs ────────────────────────────────────────────────────────────
+.next/
+out/
 build/
-.Python
-env/
-venv/
-.venv/
-pip-wheel-metadata/
+dist/
 
-# ── Reflex ───────────────────────────────────────────────────
-.web/
-*.db
-.reflex/
-frontend.zip
-backend.zip
-
-# ── Vercel ───────────────────────────────────────────────────
-.vercel/
-
-# ── Env / Secrets ────────────────────────────────────────────
+# ── Environment & secrets ────────────────────────────────────────────────────
+# Never commit real secrets. Use .env.example as the safe template.
 .env
 .env.local
-.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# ── OS ──────────────────────────────────────────────────────
+# ── Vercel ───────────────────────────────────────────────────────────────────
+.vercel
+
+# ── TypeScript ───────────────────────────────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ── OS files ─────────────────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 desktop.ini
 
-# ── IDE ─────────────────────────────────────────────────────
-.vscode/
+# ── Editor & IDE ─────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea/
 *.swp
 *.swo
-*.orig
+*~
+.history/
+
+# ── Debug & logs ─────────────────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# ── Test & coverage ──────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+*.pem
+*.key
+*.cert
+
+# ── Python (legacy workspace cache) ─────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
