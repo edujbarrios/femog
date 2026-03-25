@@ -1,16 +1,30 @@
 # FEMOG — Find Engineering Masters on GitHub
 
 <p align="center">
-  <img src="public/assets/logo.png" alt="FEMOG Logo" width="120" />
+  <img src="public/assets/logo.png" alt="FEMOG Logo" width="160" style="margin-bottom: 16px;" />
 </p>
 
-> A curated, dark-mode directory to discover exceptional software engineers on GitHub — organized by engineering discipline.
+<p align="center">
+  <em>A curated, dark-mode directory to discover exceptional software engineers on GitHub — organized by engineering discipline.</em>
+</p>
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://femog.vercel.app)
-[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js%2016-black?logo=next.js)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)](https://www.typescriptlang.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<p align="center">
+  <a href="https://femog.vercel.app">
+    <img src="https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel" alt="Deployed on Vercel" />
+  </a>
+  <a href="https://nextjs.org">
+    <img src="https://img.shields.io/badge/Next.js%2016-black?style=for-the-badge&logo=next.js" alt="Built with Next.js" />
+  </a>
+  <a href="https://www.typescriptlang.org">
+    <img src="https://img.shields.io/badge/TypeScript-Strict-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License: MIT" />
+  </a>
+  <a href="CONTRIBUTING.md">
+    <img src="https://img.shields.io/badge/Contributions-Welcome-2dd4bf?style=for-the-badge" alt="Contributions Welcome" />
+  </a>
+</p>
 
 ---
 
