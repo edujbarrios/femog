@@ -1,7 +1,7 @@
 # FEMOG — Find Engineering Masters on GitHub
 
 <p align="center">
-  <img src="public/assets/logo.png" alt="FEMOG Logo" width="160" style="margin-bottom: 16px;" />
+  <img src="public/assets/logo.png" alt="FEMOG Logo" width="300" style="margin-bottom: 16px;" />
 </p>
 
 <p align="center">
