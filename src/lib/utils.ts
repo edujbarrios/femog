@@ -48,8 +48,10 @@ export function filterProfiles(
     );
   }
 
-  // Sort
+  // Sort — maintainer is always pinned first
   result.sort((a, b) => {
+    if (a.id === 'edujbarrios') return -1;
+    if (b.id === 'edujbarrios') return 1;
     switch (filters.sort) {
       case 'followers':
         return b.followers - a.followers;
