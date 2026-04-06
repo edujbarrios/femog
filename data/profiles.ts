@@ -3,13 +3,68 @@ import type { GitHubProfile } from '@/types';
 /**
  * Curated list of exceptional engineers on GitHub.
  *
- * To add a new profile, append an object to this array following the
- * GitHubProfile interface. See README.md for field descriptions.
+ * HOW TO ADD A NEW PROFILE:
+ * ------------------------------------------------------------------
+ * Each profile must follow the `GitHubProfile` interface.
+ * Below is a detailed explanation of every field:
  *
- * Follower & repo counts are approximate and updated manually.
+ * REQUIRED FIELDS:
+ * - id: string
+ *   Unique identifier for the profile (usually same as username).
+ *   Example: 'gaearon'
+ *
+ * - name: string
+ *   Full name of the person.
+ *   Example: 'Dan Abramov'
+ *
+ * - username: string
+ *   GitHub username (without URL).
+ *   Example: 'gaearon'
+ *
+ * - bio: string
+ *   Short description (1–2 sentences max).
+ *   Should explain what they are known for.
+ *
+ * - location: string
+ *   Where they are based.
+ *   Example: 'San Francisco, CA'
+ *
+ * - categories: string[]
+ *   One or more categories describing their expertise.
+ *   Allowed values (recommended):
+ *     'ai', 'frontend', 'backend', 'fullstack',
+ *     'devops', 'systems', 'data-science', 'security', 'open-source'
+ *
+ * - tags: string[]
+ *   Specific technologies or topics.
+ *   Example: ['react', 'typescript', 'nodejs']
+ *
+ * - githubUrl: string
+ *   Full GitHub profile URL.
+ *   Example: 'https://github.com/username'
+ *
+ * OPTIONAL FIELDS:
+ * - company?: string
+ *   Current company or organization.
+ *
+ * - websiteUrl?: string
+ *   Personal website or blog.
+ *
+ * - twitterUsername?: string
+ *   Twitter/X username (without @).
+ *
+ * - maintainer?: boolean
+ *   Set to true ONLY for project maintainers.
+ *
+ * ------------------------------------------------------------------
+ * IMPORTANT RULES:
+ * - Keep bios concise and factual.
+ * - Prefer well-known or high-impact engineers.
+ * - Avoid duplicates.
+ * - Keep tags relevant and lowercase.
+ * ------------------------------------------------------------------
  */
 export const PROFILES: GitHubProfile[] = [
-  // ─── AI / Machine Learning ────────────────────────────────────────────
   {
     id: 'edujbarrios',
     name: 'Eduardo J. Barrios',
@@ -22,266 +77,8 @@ export const PROFILES: GitHubProfile[] = [
     twitterUsername: 'edujbarrios',
     maintainer: true,
   },
-  {
-    id: 'karpathy',
-    name: 'Andrej Karpathy',
-    username: 'karpathy',
-    bio: 'Formerly Director of AI at Tesla and founding member at OpenAI. Creator of micrograd, nanoGPT, and llm.c. Making AI education accessible.',
-    location: 'San Francisco, CA',
-    company: 'Independent',
-    categories: ['ai'],
-    tags: ['deep-learning', 'LLM', 'neural-networks', 'PyTorch', 'education'],
-    githubUrl: 'https://github.com/karpathy',
-    websiteUrl: 'https://karpathy.ai',
-    twitterUsername: 'karpathy',
-  },
-  {
-    id: 'fchollet',
-    name: 'François Chollet',
-    username: 'fchollet',
-    bio: 'Deep learning researcher at Google. Creator of Keras. Author of "Deep Learning with Python". Working on ARC-AGI benchmarks.',
-    location: 'Mountain View, CA',
-    company: 'Google',
-    categories: ['ai'],
-    tags: ['keras', 'tensorflow', 'deep-learning', 'python', 'AI-research'],
-    githubUrl: 'https://github.com/fchollet',
-    twitterUsername: 'fchollet',
-  },
-  {
-    id: 'lucidrains',
-    name: 'Phil Wang',
-    username: 'lucidrains',
-    bio: 'Open source AI researcher. Has implemented dozens of influential papers including Attention Is All You Need, PaLM, and DALL-E in PyTorch.',
-    location: 'Hong Kong',
-    categories: ['ai', 'open-source'],
-    tags: ['transformers', 'attention', 'PyTorch', 'papers-with-code', 'generative-AI'],
-    githubUrl: 'https://github.com/lucidrains',
-  },
-  {
-    id: 'jph00',
-    name: 'Jeremy Howard',
-    username: 'jph00',
-    bio: 'Co-founder of fast.ai and Kaggle grandmaster. Champion of practical, accessible deep learning. Prolific educator and researcher.',
-    location: 'San Francisco, CA',
-    company: 'fast.ai',
-    categories: ['ai', 'data-science'],
-    tags: ['fastai', 'deep-learning', 'education', 'jupyter', 'python'],
-    githubUrl: 'https://github.com/jph00',
-    websiteUrl: 'https://www.fast.ai',
-    twitterUsername: 'jeremyphoward',
-  },
-
-  // ─── Backend ──────────────────────────────────────────────────────────
-  {
-    id: 'antirez',
-    name: 'Salvatore Sanfilippo',
-    username: 'antirez',
-    bio: 'Creator of Redis. Software developer, hacker, and writer. Exploring new ideas in distributed systems and data structures.',
-    location: 'Catania, Italy',
-    company: 'Redis Labs (former)',
-    categories: ['backend', 'systems'],
-    tags: ['redis', 'C', 'databases', 'distributed-systems', 'open-source'],
-    githubUrl: 'https://github.com/antirez',
-    websiteUrl: 'http://antirez.com',
-    twitterUsername: 'antirez',
-  },
-  {
-    id: 'tj',
-    name: 'TJ Holowaychuk',
-    username: 'tj',
-    bio: 'Creator of Express.js, Koa.js, Apex, and hundreds of Node.js packages. One of the most prolific open source developers in history. Now building in Go.',
-    location: 'Victoria, BC',
-    categories: ['backend', 'open-source'],
-    tags: ['nodejs', 'express', 'golang', 'typescript', 'cli'],
-    githubUrl: 'https://github.com/tj',
-    twitterUsername: 'tjholowaychuk',
-  },
-
-  // ─── Frontend ─────────────────────────────────────────────────────────
-  {
-    id: 'yyx990803',
-    name: 'Evan You',
-    username: 'yyx990803',
-    bio: 'Creator of Vue.js and Vite. Independent open source developer shaping the future of frontend tooling and progressive frameworks.',
-    location: 'Singapore',
-    company: 'Vue.js / Vite',
-    categories: ['frontend', 'open-source', 'fullstack'],
-    tags: ['vuejs', 'vite', 'javascript', 'typescript', 'bundlers'],
-    githubUrl: 'https://github.com/yyx990803',
-    websiteUrl: 'https://evanyou.me',
-    twitterUsername: 'youyuxi',
-  },
-  {
-    id: 'gaearon',
-    name: 'Dan Abramov',
-    username: 'gaearon',
-    bio: 'Co-author of Redux and Create React App. Works on the React core team at Meta. Famous for making complex ideas feel simple.',
-    location: 'London, UK',
-    company: 'Meta',
-    categories: ['frontend'],
-    tags: ['react', 'redux', 'javascript', 'typescript', 'open-source'],
-    githubUrl: 'https://github.com/gaearon',
-    websiteUrl: 'https://overreacted.io',
-    twitterUsername: 'dan_abramov',
-  },
-  {
-    id: 'Rich-Harris',
-    name: 'Rich Harris',
-    username: 'Rich-Harris',
-    bio: 'Creator of Svelte and Rollup. Rethinking reactivity in JavaScript frameworks. Graphics editor at the New York Times, now at Vercel.',
-    location: 'New York',
-    company: 'Vercel',
-    categories: ['frontend', 'open-source'],
-    tags: ['svelte', 'rollup', 'javascript', 'typescript', 'compilers'],
-    githubUrl: 'https://github.com/Rich-Harris',
-    twitterUsername: 'Rich_Harris',
-  },
-  {
-    id: 'addyosmani',
-    name: 'Addy Osmani',
-    username: 'addyosmani',
-    bio: 'Engineering Manager at Google Chrome. Author of Learning JavaScript Design Patterns. Web performance obsessive.',
-    location: 'San Francisco, CA',
-    company: 'Google',
-    categories: ['frontend'],
-    tags: ['javascript', 'web-performance', 'chrome', 'patterns', 'tooling'],
-    githubUrl: 'https://github.com/addyosmani',
-    websiteUrl: 'https://addyosmani.com',
-    twitterUsername: 'addyosmani',
-  },
-
-  // ─── Full Stack ───────────────────────────────────────────────────────
-  {
-    id: 'kentcdodds',
-    name: 'Kent C. Dodds',
-    username: 'kentcdodds',
-    bio: 'Full stack JavaScript developer. Creator of Testing Library. Creator of EpicWeb.dev and EpicReact. Passionate about software testing.',
-    location: 'Utah, USA',
-    company: 'EpicWeb.dev',
-    categories: ['fullstack', 'frontend'],
-    tags: ['react', 'testing', 'javascript', 'typescript', 'education'],
-    githubUrl: 'https://github.com/kentcdodds',
-    websiteUrl: 'https://kentcdodds.com',
-    twitterUsername: 'kentcdodds',
-  },
-  {
-    id: 'rauchg',
-    name: 'Guillermo Rauch',
-    username: 'rauchg',
-    bio: 'CEO at Vercel. Created Next.js, Socket.io, and Mongoose. Building infrastructure that powers the modern frontend web.',
-    location: 'San Francisco, CA',
-    company: 'Vercel',
-    categories: ['fullstack', 'backend'],
-    tags: ['nextjs', 'nodejs', 'javascript', 'typescript', 'deployment'],
-    githubUrl: 'https://github.com/rauchg',
-    twitterUsername: 'rauchg',
-  },
-  {
-    id: 'DHH',
-    name: 'David Heinemeier Hansson',
-    username: 'DHH',
-    bio: 'Creator of Ruby on Rails. Founder & CTO of Basecamp / 37signals. Racing driver. Author. Outspoken voice in tech.',
-    location: 'Malibu, CA',
-    company: '37signals',
-    categories: ['fullstack', 'backend'],
-    tags: ['rails', 'ruby', 'hotwire', 'web-development', 'databases'],
-    githubUrl: 'https://github.com/DHH',
-    websiteUrl: 'https://dhh.dk',
-    twitterUsername: 'dhh',
-  },
-
-  // ─── DevOps / SRE ─────────────────────────────────────────────────────
-  {
-    id: 'kelseyhightower',
-    name: 'Kelsey Hightower',
-    username: 'kelseyhightower',
-    bio: 'Developer Advocate at Google Cloud. Kubernetes educator. Author of the iconic "Kubernetes the Hard Way" tutorial.',
-    location: 'Portland, OR',
-    company: 'Google',
-    categories: ['devops', 'cloud'],
-    tags: ['kubernetes', 'google-cloud', 'golang', 'containers', 'infrastructure'],
-    githubUrl: 'https://github.com/kelseyhightower',
-    twitterUsername: 'kelseyhightower',
-  },
-  {
-    id: 'jessfraz',
-    name: 'Jessie Frazelle',
-    username: 'jessfraz',
-    bio: 'Hacker. Former Docker core maintainer, container security pioneer. Co-founder of Oxide Computer Company. Author.',
-    location: 'San Francisco, CA',
-    company: 'Oxide Computer Company',
-    categories: ['devops', 'security', 'systems'],
-    tags: ['containers', 'docker', 'linux', 'golang', 'security'],
-    githubUrl: 'https://github.com/jessfraz',
-    websiteUrl: 'https://jess.dev',
-    twitterUsername: 'jessfraz',
-  },
-
-  // ─── Systems ──────────────────────────────────────────────────────────
-  {
-    id: 'torvalds',
-    name: 'Linus Torvalds',
-    username: 'torvalds',
-    bio: 'Creator of the Linux kernel and Git. Just a random Finnish-American hacker who changed modern computing.',
-    location: 'Portland, OR',
-    company: 'Linux Foundation',
-    categories: ['systems', 'open-source'],
-    tags: ['linux', 'kernel', 'git', 'C', 'operating-systems'],
-    githubUrl: 'https://github.com/torvalds',
-  },
-  {
-    id: 'BurntSushi',
-    name: 'Andrew Gallant',
-    username: 'BurntSushi',
-    bio: 'Creator of ripgrep and many essential Rust crates. Software engineer at Astral focused on performance and correctness.',
-    location: 'Massachusetts',
-    company: 'Astral',
-    categories: ['systems', 'open-source'],
-    tags: ['rust', 'ripgrep', 'performance', 'regex', 'cli'],
-    githubUrl: 'https://github.com/BurntSushi',
-  },
-
-  // ─── Data Science ─────────────────────────────────────────────────────
-  {
-    id: 'rasbt',
-    name: 'Sebastian Raschka',
-    username: 'rasbt',
-    bio: 'Research scientist at Apple. Author of "Machine Learning with PyTorch and Scikit-Learn". Renowned educator and practitioner.',
-    location: 'Madison, WI',
-    company: 'Apple',
-    categories: ['data-science', 'ai'],
-    tags: ['python', 'pytorch', 'scikit-learn', 'machine-learning', 'education'],
-    githubUrl: 'https://github.com/rasbt',
-    websiteUrl: 'https://sebastianraschka.com',
-    twitterUsername: 'rasbt',
-  },
-
-  // ─── Security ─────────────────────────────────────────────────────────
-  {
-    id: 'swisskyrepo',
-    name: 'Swissky',
-    username: 'swisskyrepo',
-    bio: 'Security researcher. Creator of PayloadsAllTheThings — one of the most referenced offensive security repositories on GitHub.',
-    location: 'Switzerland',
-    categories: ['security'],
-    tags: ['penetration-testing', 'payloads', 'web-security', 'ctf', 'infosec'],
-    githubUrl: 'https://github.com/swisskyrepo',
-  },
-
-  // ─── Open Source ──────────────────────────────────────────────────────
-  {
-    id: 'sindresorhus',
-    name: 'Sindre Sorhus',
-    username: 'sindresorhus',
-    bio: 'Full-Time Open Sourcerer. Creator of chalk, p-queue, del, fuite, and 1,000+ more packages. The most starred individual on npm.',
-    location: 'Bangkok, Thailand',
-    categories: ['open-source', 'frontend', 'backend'],
-    tags: ['nodejs', 'typescript', 'npm', 'javascript', 'cli'],
-    githubUrl: 'https://github.com/sindresorhus',
-    websiteUrl: 'https://sindresorhus.com',
-    twitterUsername: 'sindresorhus',
-  },
 ];
 
 export const getProfilesByCategory = (categoryId: string): GitHubProfile[] =>
   PROFILES.filter((p) => p.categories.includes(categoryId as never));
+
