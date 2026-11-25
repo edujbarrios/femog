@@ -51,11 +51,8 @@ export function ProfileGrid({
 
   return (
     <section aria-label="Engineer directory">
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-xl font-semibold tracking-tight text-ink">Explore engineers</h2>
-        <p className="text-sm text-ink-muted">Select a profile to see their work.</p>
-      </div>
-      <ul className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <h2 className="mb-4 text-xl font-semibold tracking-tight text-ink">Explore engineers</h2>
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {profiles.map((profile) => (
           <li key={profile.id} className="min-w-0">
             <ProfileCard

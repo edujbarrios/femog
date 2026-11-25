@@ -18,10 +18,10 @@ export default function HomePage() {
   } = useProfiles();
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="space-y-8">
+    <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="space-y-6">
         {/* Hero */}
-        <HeroSection totalCount={totalCount} />
+        <HeroSection />
 
         {/* Search + filters */}
         <div className="space-y-4 rounded-2xl border border-line bg-surface p-4 sm:p-5">

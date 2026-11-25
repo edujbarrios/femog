@@ -19,8 +19,8 @@ Inspired by [Remote In Tech](https://remoteintech.company/), FEMOG focuses on di
 
 - Search by name, GitHub username, biography, technology tag, company or location.
 - Filter by one or more of the 11 engineering disciplines. A profile matches if it belongs to **any** selected discipline; search further narrows the results.
-- Browse a compact, responsive gallery of selectable engineer tiles with avatars, usernames and discipline badges.
-- Select a tile to open the engineer's profile, including their biography, skills, full category list and up to three featured projects with optional one-sentence descriptions and direct repository links.
+- Browse a responsive gallery of selectable engineer cards with avatars, usernames, biographies and discipline badges.
+- Select a card to open the full profile, including skills, all categories and up to three featured projects with optional one-sentence descriptions and direct repository links.
 - Use **Follow on GitHub** in the profile dialog to visit the engineer's GitHub profile and follow them there.
 - Close the dialog using its close button, Escape, or the backdrop; keyboard focus returns to the selected tile.
 - See the matching profile count and category counts calculated from the curated dataset.
