@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/HeroSection';
 import { SearchBar } from '@/components/SearchBar';
 import { FilterBar } from '@/components/FilterBar';
 import { ProfileGrid } from '@/components/ProfileGrid';
-import { StatsBar } from '@/components/StatsBar';
 import { useProfiles } from '@/hooks/useProfiles';
 
 export default function HomePage() {
@@ -24,11 +23,8 @@ export default function HomePage() {
         {/* Hero */}
         <HeroSection totalCount={totalCount} />
 
-        {/* Quick stats */}
-        <StatsBar />
-
         {/* Search + filters */}
-        <div className="space-y-4">
+        <div className="space-y-4 rounded-2xl border border-line bg-surface p-4 sm:p-5">
           <SearchBar value={filters.search} onChange={setSearch} />
           <FilterBar
             selectedCategories={filters.categories}

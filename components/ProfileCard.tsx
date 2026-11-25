@@ -1,183 +1,84 @@
 import Image from 'next/image';
-import {
-  MapPin,
-  Building2,
-  ExternalLink,
-  Github,
-  Globe,
-  Wrench,
-} from 'lucide-react';
+import { ArrowUpRight, Wrench } from 'lucide-react';
 import { CategoryBadge } from './CategoryBadge';
 import { getCategoryById } from '@/data/categories';
 import type { GitHubProfile } from '@/types';
 
 interface ProfileCardProps {
   profile: GitHubProfile;
+  onSelect: (trigger: HTMLButtonElement) => void;
 }
 
-export function ProfileCard({ profile }: ProfileCardProps) {
+/** Compact, channel-style tile. All repository links live in the profile dialog. */
+export function ProfileCard({ profile, onSelect }: ProfileCardProps) {
   const primaryCategory = getCategoryById(profile.categories[0]);
-  const featuredProjects = profile.featuredProjects?.slice(0, 3) ?? [];
+  const projectCount = profile.featuredProjects?.length ?? 0;
+  const accent = primaryCategory?.color ?? '#7eead6';
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-200 hover:border-control-border">
-      {/* Top gradient accent based on primary category */}
-      <div
-        className="h-[3px] w-full shrink-0"
-        style={{
-          background: primaryCategory
-            ? `linear-gradient(90deg, ${primaryCategory.color}70, ${primaryCategory.color}10)`
-            : 'linear-gradient(90deg, #2dd4bf70, #2dd4bf10)',
-        }}
+    <button
+      type="button"
+      onClick={(event) => onSelect(event.currentTarget)}
+      aria-haspopup="dialog"
+      aria-label={`View profile of ${profile.name} (@${profile.username})`}
+      className="group relative flex h-full min-h-[210px] w-full flex-col items-center overflow-hidden rounded-2xl border border-control-border bg-surface px-3 pb-4 pt-5 text-center transition-colors hover:border-accent hover:bg-raised focus-visible:outline-offset-4 sm:px-4"
+    >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-1"
+        style={{ background: `linear-gradient(90deg, ${accent}33, ${accent}, ${accent}33)` }}
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-28 opacity-60"
+        style={{ background: `radial-gradient(ellipse at 50% 0%, ${accent}24, transparent 72%)` }}
+      />
+      <ArrowUpRight
+        size={18}
+        className="absolute right-3 top-3 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         aria-hidden="true"
       />
-
-      <div className="flex flex-1 flex-col p-5">
-        {/* Avatar + name row */}
-        <div className="flex items-start gap-4">
-          <div className="shrink-0">
-            <Image
-              src={`https://github.com/${profile.username}.png?size=96`}
-              alt={`${profile.name}'s GitHub avatar`}
-              width={52}
-              height={52}
-              className="rounded-full ring-2 ring-control-border ring-offset-2 ring-offset-surface"
-              unoptimized
-            />
-          </div>
-          <div className="min-w-0 flex-1 pt-0.5">
-            <h3 className="break-words font-semibold text-ink leading-tight">
-              {profile.name}
-            </h3>
-            <a
-              href={profile.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-0.5 inline-block break-all text-sm text-accent transition hover:text-accent-hover hover:underline"
-            >
-              @{profile.username}
-            </a>
-            {profile.maintainer && (
-              <div className="mt-1.5">
-                <span className="inline-flex items-center gap-1 rounded-full border border-control-border bg-[#173b35] px-2 py-0.5 text-xs font-semibold text-accent">
-                  <Wrench size={11} aria-hidden="true" />
-                  Maintainer
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Meta: company + location */}
-        <div className="mt-3 space-y-1">
-          {profile.company && (
-            <div className="flex items-center gap-1.5 text-xs text-ink-muted">
-              <Building2 size={11} aria-hidden="true" />
-              <span className="truncate">{profile.company}</span>
-            </div>
-          )}
-          {profile.location && (
-            <div className="flex items-center gap-1.5 text-xs text-ink-muted">
-              <MapPin size={11} aria-hidden="true" />
-              <span className="truncate">{profile.location}</span>
-            </div>
-          )}
-        </div>
-
-        {/* Bio */}
-        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-secondary">
-          {profile.bio}
-        </p>
-
-        {/* Category badges */}
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {profile.categories.map((catId) => {
-            const cat = getCategoryById(catId);
-            if (!cat) return null;
-            return <CategoryBadge key={catId} category={cat} size="sm" />;
-          })}
-        </div>
-
-        {/* Skill tags */}
-        <div className="mt-2 flex flex-wrap gap-1">
-          {profile.tags.slice(0, 4).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-md bg-raised px-1.5 py-0.5 text-xs text-ink-secondary"
-            >
-              #{tag}
-            </span>
-          ))}
-          {profile.tags.length > 4 && (
-            <span className="rounded-md bg-raised px-1.5 py-0.5 text-xs text-ink-muted">
-              +{profile.tags.length - 4}
-            </span>
-          )}
-        </div>
-
-        {/* Featured projects */}
-        {featuredProjects.length > 0 && (
-          <div className="mt-4">
-            <h4 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accent">
-              <Github size={12} aria-hidden="true" />
-              Featured projects
-            </h4>
-            <ul className="space-y-1.5">
-              {featuredProjects.map((project) => (
-                <li key={project.githubUrl}>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start justify-between gap-2 rounded-lg border border-control-border bg-raised px-3 py-2.5 text-sm font-semibold text-accent transition-colors hover:border-accent hover:bg-surface-hover hover:text-accent-hover"
-                  >
-                    <span className="min-w-0 break-words">
-                      <span className="block">{project.name}</span>
-                      {project.description?.trim() && (
-                        <span className="mt-1 block text-xs font-normal leading-relaxed text-ink-secondary sm:text-sm">
-                          {project.description.trim()}
-                        </span>
-                      )}
-                      <span className="sr-only"> (opens on GitHub in a new tab)</span>
-                    </span>
-                    <ExternalLink size={12} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="relative mt-1">
+        <Image
+          src={`https://github.com/${profile.username}.png?size=192`}
+          alt=""
+          width={80}
+          height={80}
+          unoptimized
+          className="h-20 w-20 rounded-full object-cover ring-2 ring-control-border ring-offset-4 ring-offset-surface transition-transform group-hover:scale-105"
+        />
+        {profile.maintainer && (
+          <span
+            title="FEMOG maintainer"
+            className="absolute -bottom-1 -right-1 rounded-full border border-control-border bg-raised p-1.5 text-accent"
+          >
+            <Wrench size={12} aria-hidden="true" />
+            <span className="sr-only">Maintainer</span>
+          </span>
         )}
-
-        {/* Divider */}
-        <div className="mt-4 border-t border-line" />
-
-        {/* CTA row */}
-        <div className="mt-4 flex items-center justify-end">
-          <div className="flex items-center gap-2">
-            {profile.websiteUrl && (
-              <a
-                href={profile.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Personal website"
-                className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-control-border bg-raised p-2 text-accent transition hover:border-accent hover:bg-surface-hover hover:text-accent-hover"
-              >
-                <Globe size={13} aria-hidden="true" />
-              </a>
-            )}
-            <a
-              href={profile.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-accent-solid px-4 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-hover"
-            >
-              <Github size={15} aria-hidden="true" />
-              Follow
-              <ExternalLink size={10} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
       </div>
-    </article>
+      <h3 className="mt-4 w-full break-words text-sm font-semibold leading-snug text-ink sm:text-base">
+        {profile.name}
+      </h3>
+      <p className="mt-1 w-full break-all text-xs text-accent sm:text-sm">
+        @{profile.username}
+      </p>
+      <div className="mt-3 flex w-full flex-wrap items-center justify-center gap-1.5">
+        {profile.categories.slice(0, 1).map((id) => {
+          const category = getCategoryById(id);
+          return category ? <CategoryBadge key={id} category={category} size="sm" /> : null;
+        })}
+        {profile.categories.length > 1 && (
+          <span className="rounded-full bg-raised px-2 py-0.5 text-xs font-medium text-ink-secondary">
+            +{profile.categories.length - 1}
+          </span>
+        )}
+      </div>
+      <span className="mt-auto pt-3 text-xs text-ink-muted">
+        {projectCount > 0
+          ? `${projectCount} featured ${projectCount === 1 ? 'project' : 'projects'}`
+          : 'View profile'}
+      </span>
+    </button>
   );
 }
