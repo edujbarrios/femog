@@ -4,6 +4,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Contributions](https://img.shields.io/badge/Contributions-welcome-0f766e?style=flat-square)](CONTRIBUTING.md)
+[![License](https://img.shields.io/badge/License-source--available-64748b?style=flat-square)](LICENSE)
 
 **Find Engineering Masters on GitHub.**
 
@@ -65,7 +66,7 @@ Open [http://localhost:3000](http://localhost:3000). No environment variables or
 
 ## Contributing
 
-The easiest way to help is to suggest a public GitHub profile, correct outdated information or add a missing engineering discipline. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guidelines.
+The easiest way to help is to suggest a public GitHub profile, correct outdated information or add a missing engineering discipline. Contributions through attributed forks and pull requests are welcome under the [FEMOG Source-Available Contribution License](LICENSE). See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guidelines.
 
 ### Add a profile
 
@@ -157,4 +158,12 @@ types/index.ts        # Profile and category types
 
 Created by [Eduardo J. Barrios](https://github.com/edujbarrios). FEMOG is an independent project and is not affiliated with GitHub, Inc.
 
-**License:** The project has been described as MIT-licensed, but a standalone license file is not currently included. Confirm the applicable terms with the maintainer before redistribution.
+## License
+
+FEMOG is **source-available**, not an OSI-approved open-source project. The [FEMOG Source-Available Contribution License, Version 1.0](LICENSE) governs materials distributed under that license.
+
+- **Allowed:** read the source, run and modify it locally for study or contribution, submit pull requests from attributed forks, and quote limited excerpts with credit.
+- **Attribution:** retain the license and copyright notices in permitted copies, identify FEMOG and its contributors, and link to the [original repository](https://github.com/edujbarrios/femog).
+- **Restricted:** independent redistribution, mirrors, substantial code reuse, and separate deployments require prior written permission. Credit alone is not permission to republish the project.
+
+GitHub's applicable platform rights, third-party licenses, and previously validly granted permissions are unaffected. See [LICENSE](LICENSE) for the full terms.

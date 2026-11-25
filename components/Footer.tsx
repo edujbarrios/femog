@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-line bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="mt-16 border-t border-line bg-background">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           {/* Brand */}
           <div>
@@ -28,7 +28,7 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <nav className="flex items-center gap-5 text-sm text-ink-muted">
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm text-ink-secondary">
             <Link href="/" className="hover:text-accent-hover transition">
               Home
             </Link>
@@ -42,6 +42,14 @@ export function Footer() {
               className="hover:text-accent-hover transition"
             >
               Source
+            </a>
+            <a
+              href="https://github.com/edujbarrios/femog/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent-hover transition"
+            >
+              License
             </a>
           </nav>
 
@@ -61,7 +69,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-8 border-t border-line pt-6 text-center text-xs text-ink-muted">
+        <div className="mt-8 border-t border-line pt-5 text-center text-sm text-ink-muted">
           Profile data is curated manually. Not affiliated with GitHub, Inc.
         </div>
       </div>

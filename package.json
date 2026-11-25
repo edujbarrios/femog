@@ -4,7 +4,7 @@
   "private": true,
   "description": "Find Engineering Masters on GitHub — a curated dark-mode directory of exceptional engineers",
   "author": "Eduardo J. Barrios <https://github.com/edujbarrios>",
-  "license": "",
+  "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

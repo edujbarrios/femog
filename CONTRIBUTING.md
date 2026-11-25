@@ -2,6 +2,14 @@
 
 Thank you for considering contributing to FEMOG! This document explains how to add profiles, categories, and other improvements.
 
+## License and attribution
+
+FEMOG welcomes contributions under its [source-available license](LICENSE). You may fork the repository on GitHub and run or modify it locally to prepare and test your changes. Keep the copyright and license notices, credit FEMOG and its contributors, link to https://github.com/edujbarrios/femog, and identify your modifications.
+
+Submit your changes as a pull request to the original repository. By submitting, you grant the maintainers the permission described in section 5 of the license; you retain ownership of your contribution. Only submit work you have the right to contribute and disclose separately licensed material.
+
+Independent redistribution or deployment of FEMOG is not permitted without separate written authorization, except for rights preserved by the license.
+
 ## Ways to Contribute
 
 - **Suggest or add a GitHub profile** — the most common contribution
@@ -84,7 +92,7 @@ Thank you for considering contributing to FEMOG! This document explains how to a
 
    A profile can belong to **multiple** categories: `categories: ['ai', 'open-source']`.
 
-   For `featuredProjects`, aim to include three distinct public GitHub repositories that showcase the engineer's work. Each entry requires a `name` and verified `githubUrl`; the optional `description` is a single concise, factual sentence explaining what the project does. It appears below the project name on the card. Omit descriptions if unknown, order projects by relevance, and include fewer than three if necessary. Omit the entire field or use an empty array if none are available.
+   For `featuredProjects`, aim to include three distinct public GitHub repositories that showcase the engineer's work. Each entry requires a `name` and verified `githubUrl`; the optional `description` is a single concise, factual sentence explaining what the project does. It appears below the project name in the profile dialog. Omit descriptions if unknown, order projects by relevance, and include fewer than three if necessary. Omit the entire field or use an empty array if none are available.
 
 4. Submit a pull request with the title `feat: add profile for @username`.
 

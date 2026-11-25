@@ -40,17 +40,17 @@ export function ProfileDialog({ profile, onClose }: ProfileDialogProps) {
       onClick={(event) => {
         if (event.target === event.currentTarget) event.currentTarget.close();
       }}
-      className="m-auto max-h-[calc(100dvh_-_2rem)] w-[calc(100%_-_2rem)] max-w-xl overflow-y-auto rounded-3xl border border-control-border bg-surface p-0 text-ink shadow-2xl backdrop:bg-[#02080b]/80 backdrop:backdrop-blur-sm"
+      className="m-auto max-h-[calc(100dvh_-_2rem)] w-[calc(100%_-_2rem)] max-w-2xl overflow-y-auto overscroll-contain rounded-3xl border border-control-border bg-surface p-0 text-ink shadow-2xl backdrop:bg-[#02080b]/80 backdrop:backdrop-blur-sm"
     >
       <div className="relative">
         <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-surface px-5 py-3 sm:px-7">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">Engineer profile</span>
+          <span className="text-sm font-semibold tracking-wide text-accent">Engineer profile</span>
           <button
             ref={closeRef}
             type="button"
             onClick={() => dialogRef.current?.close()}
             aria-label="Close profile"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-control-border bg-raised text-ink-secondary transition-colors hover:border-accent hover:text-accent"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-control-border bg-raised text-ink-secondary transition-colors hover:border-accent hover:text-accent"
           >
             <X size={20} aria-hidden="true" />
           </button>
@@ -100,7 +100,7 @@ export function ProfileDialog({ profile, onClose }: ProfileDialogProps) {
           </div>
 
           <div className="space-y-3">
-            <p className="text-sm leading-relaxed text-ink-secondary sm:text-base">{profile.bio}</p>
+            <p className="text-base leading-7 text-ink-secondary">{profile.bio}</p>
             <div className="flex flex-wrap gap-1.5">
               {profile.categories.map((id) => {
                 const category = getCategoryById(id);
@@ -120,7 +120,7 @@ export function ProfileDialog({ profile, onClose }: ProfileDialogProps) {
 
           {featuredProjects.length > 0 && (
             <section aria-label="Featured projects" className="border-t border-line pt-5">
-              <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink">
+              <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-ink">
                 <Github size={16} className="text-accent" aria-hidden="true" />
                 Featured projects
               </h3>
@@ -134,9 +134,9 @@ export function ProfileDialog({ profile, onClose }: ProfileDialogProps) {
                       className="flex items-start justify-between gap-3 rounded-xl border border-control-border bg-raised px-4 py-3 text-sm transition-colors hover:border-accent hover:bg-surface-hover"
                     >
                       <span className="min-w-0 break-words">
-                        <span className="block font-semibold text-accent">{project.name}</span>
+                        <span className="block text-base font-semibold text-accent">{project.name}</span>
                         {project.description?.trim() && (
-                          <span className="mt-1 block leading-relaxed text-ink-secondary">
+                          <span className="mt-1 block text-[15px] leading-6 text-ink-secondary">
                             {project.description.trim()}
                           </span>
                         )}
@@ -155,7 +155,7 @@ export function ProfileDialog({ profile, onClose }: ProfileDialogProps) {
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-accent-solid px-4 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-hover"
+              className="inline-flex min-h-12 w-full items-center justify-center sm:w-auto sm:flex-1 gap-2 rounded-xl bg-accent-solid px-4 py-3 text-base font-semibold text-accent-ink transition-colors hover:bg-accent-hover"
             >
               <Github size={18} aria-hidden="true" />
               Follow on GitHub
@@ -175,8 +175,8 @@ export function ProfileDialog({ profile, onClose }: ProfileDialogProps) {
               </a>
             )}
           </div>
-          <p className="text-center text-xs leading-relaxed text-ink-muted">
-            Follow opens the engineer's GitHub profile, where you can follow them directly.
+          <p className="text-center text-sm leading-relaxed text-ink-muted">
+            Opens the engineer's GitHub profile in a new tab.
           </p>
         </div>
       </div>

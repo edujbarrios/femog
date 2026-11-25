@@ -1,0 +1,90 @@
+FEMOG Source-Available Contribution License, Version 1.0
+
+Copyright (c) 2026 Eduardo J. Barrios and the respective contributors.
+All rights reserved except as expressly granted below.
+
+Original project: https://github.com/edujbarrios/femog
+
+1. Scope
+
+This license applies to the original FEMOG source code, documentation, and
+assets distributed with this license, to the extent that the relevant
+copyright holders have the right to license them. Third-party dependencies,
+separately licensed materials, and external profile images remain subject to
+their own terms. No ownership of third-party content is claimed.
+
+2. Permitted activities
+
+Subject to the conditions below, you may:
+(a) view and study the source code;
+(b) clone, download, run, and modify the project locally for private study,
+    evaluation, development, testing, or preparing contributions to FEMOG;
+(c) create and maintain an attributed GitHub fork and share patches solely
+    for reviewing, testing, or submitting contributions to the original
+    project;
+(d) quote limited excerpts in discussion, documentation, or educational
+    commentary with attribution, without reconstructing the project;
+(e) use the official hosted FEMOG website.
+
+These permissions are non-exclusive, worldwide, and royalty-free. They do
+not authorize independent redistribution or deployment of the project.
+
+3. Attribution
+
+When sharing a permitted fork, patch, or excerpt, identify FEMOG, credit
+Eduardo J. Barrios and the relevant contributors, and link to the original
+repository at https://github.com/edujbarrios/femog.
+
+Retain applicable copyright notices, this license, and third-party notices
+in permitted copies and forks. Clearly identify modifications. Do not imply
+that your work is the official FEMOG project or endorsed by its maintainers.
+
+4. Restrictions
+
+Except as expressly permitted above, by applicable law, or under a separate
+written authorization from the relevant rights holders, you may not:
+
+(a) republish, mirror, redistribute, sell, sublicense, or otherwise make
+    available the whole project or a substantial portion of its protected
+    source code or assets, whether modified or unmodified;
+(b) deploy or offer an independent hosted, commercial, or non-commercial
+    copy or derivative of FEMOG to third parties;
+(c) incorporate substantial protected portions of FEMOG into another
+    product, service, template, or repository;
+(d) remove or misrepresent copyright, attribution, or license notices.
+
+Attribution alone does not grant permission for these restricted activities.
+
+5. Contributions
+
+By intentionally submitting a contribution to the original FEMOG project,
+you confirm that you have the rights necessary to submit it and grant the
+project maintainers a non-exclusive, worldwide, perpetual, royalty-free
+license to use, reproduce, modify, integrate, publicly display, distribute,
+and host that contribution as part of FEMOG under this license, including
+its official deployment. You retain ownership of your contribution. Identify
+any third-party material and its applicable license before submitting it.
+No copyright assignment is required.
+
+6. Platform rights and existing permissions
+
+Nothing in this license restricts rights granted by GitHub's applicable
+Terms of Service for public repositories, including viewing and forking
+through GitHub's functionality, or rights that cannot be restricted under
+applicable law. This license does not revoke permissions validly granted
+under an earlier license or separate agreement. It does not authorize
+relicensing third-party works.
+
+7. Disclaimer
+
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NON-INFRINGEMENT. TO THE EXTENT PERMITTED BY LAW,
+THE COPYRIGHT HOLDERS AND CONTRIBUTORS SHALL NOT BE LIABLE FOR CLAIMS,
+DAMAGES, OR OTHER LIABILITY ARISING FROM THE MATERIALS OR THEIR USE.
+
+8. Additional permissions
+
+For reuse, redistribution, or independent deployment beyond the permissions
+above, obtain prior written authorization from the relevant rights holders.
+Contact the project maintainer through the original GitHub repository.

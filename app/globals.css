@@ -9,10 +9,10 @@
   --raised: #1d3038;
   --surface-hover: #263d45;
   --line: #3c555b;
-  --control-border: #668087;
+  --control-border: #78939b;
   --ink: #f1f7f8;
-  --ink-secondary: #cbd8dd;
-  --ink-muted: #aabdc3;
+  --ink-secondary: #d6e2e6;
+  --ink-muted: #b7c8ce;
   --accent: #7eead6;
   --accent-hover: #a7f3e6;
   --accent-solid: #5eead4;
@@ -67,7 +67,7 @@ select option {
 /* ── Focus visible ───────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* ── Utility: line-clamp-3 (extra safety) ────────────── */
@@ -95,4 +95,9 @@ select option {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Keep the explicit clear-search button as the single visible clear control. */
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
 }

@@ -56,7 +56,7 @@ export default function AboutPage() {
               'Data-driven — add profiles in one data file, or extend the category definitions and types.',
               'No GitHub API token required — profile data is curated locally; avatars are loaded from GitHub.',
               'Inspired by Remote In Tech: clean card-based layout, category filtering, instant search.',
-              'Open source — contributions are welcome via pull request.',
+              'Source-available — attributed contributions are welcome via pull request.',
             ].map((point) => (
               <li key={point} className="flex gap-2.5">
                 <span className="mt-1 shrink-0 text-accent">•</span>
@@ -127,6 +127,23 @@ export default function AboutPage() {
               CONTRIBUTING.md
             </a>{' '}
             for detailed guidelines.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-4 text-xl font-semibold text-ink">License</h2>
+          <p className="text-[15px] leading-relaxed text-ink-secondary">
+            FEMOG is source-available. Attributed contributions are welcome, while independent redistribution and deployment require permission.
+            See the{' '}
+            <a
+              href="https://github.com/edujbarrios/femog/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline underline-offset-4 hover:text-accent-hover"
+            >
+              full license
+            </a>{' '}
+            for the terms and exceptions.
           </p>
         </section>
       </div>

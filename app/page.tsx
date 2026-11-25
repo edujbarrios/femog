@@ -31,6 +31,8 @@ export default function HomePage() {
             onToggleCategory={toggleCategory}
             resultCount={profiles.length}
             totalCount={totalCount}
+            onClearFilters={clearFilters}
+            hasActiveFilters={hasActiveFilters}
           />
         </div>
 

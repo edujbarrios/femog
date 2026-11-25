@@ -24,7 +24,7 @@ export function ProfileCard({ profile, onSelect }: ProfileCardProps) {
       aria-haspopup="dialog"
       aria-label={`View profile of ${profile.name} (@${profile.username})`}
       aria-describedby={bioId}
-      className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-control-border bg-surface p-5 text-left transition-colors hover:border-accent hover:bg-raised focus-visible:outline-offset-4"
+      className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-control-border bg-surface p-5 text-left shadow-sm transition-colors hover:border-accent hover:bg-raised focus-visible:outline-offset-4"
     >
       <span
         aria-hidden="true"
@@ -52,10 +52,10 @@ export function ProfileCard({ profile, onSelect }: ProfileCardProps) {
           )}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block break-words text-base font-semibold leading-snug text-ink">
+          <span className="block break-words text-lg font-semibold leading-snug text-ink">
             {profile.name}
           </span>
-          <span className="mt-1 block break-all text-xs text-accent sm:text-sm">
+          <span className="mt-1 block break-all text-sm font-medium text-accent">
             @{profile.username}
           </span>
         </span>
@@ -66,7 +66,7 @@ export function ProfileCard({ profile, onSelect }: ProfileCardProps) {
         />
       </span>
 
-      <span id={bioId} className="mt-4 block w-full break-words text-sm leading-relaxed text-ink-secondary">
+      <span id={bioId} className="mt-4 block w-full break-words text-[15px] leading-7 text-ink-secondary">
         {profile.bio}
       </span>
 
@@ -83,15 +83,15 @@ export function ProfileCard({ profile, onSelect }: ProfileCardProps) {
       </span>
 
       <span className="mt-auto block w-full pt-4">
-        <span className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3 text-xs">
+        <span className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3 text-sm">
           {projectCount > 0 && (
             <span className="text-ink-muted">
               {projectCount} featured {projectCount === 1 ? 'project' : 'projects'}
             </span>
           )}
-          <span className="ml-auto inline-flex items-center gap-1 font-semibold text-accent">
+          <span className="ml-auto inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-control-border bg-raised px-3 py-2 font-semibold text-accent group-hover:border-accent group-hover:bg-surface-hover">
             View profile
-            <ArrowUpRight size={12} aria-hidden="true" />
+            <ArrowUpRight size={15} aria-hidden="true" />
           </span>
         </span>
       </span>

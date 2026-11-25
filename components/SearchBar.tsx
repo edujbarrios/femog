@@ -12,14 +12,14 @@ interface SearchBarProps {
 export function SearchBar({
   value,
   onChange,
-  placeholder = 'Search by name, username, skills, company…',
+  placeholder = 'Search engineers by name or skill…',
 }: SearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="relative w-full">
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-        <Search size={16} className="text-ink-muted" aria-hidden="true" />
+        <Search size={20} className="text-ink-muted" aria-hidden="true" />
       </div>
 
       <input
@@ -29,11 +29,12 @@ export function SearchBar({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         aria-label="Search profiles"
-        className="h-12 w-full rounded-xl border border-control-border bg-surface pl-11 pr-12 text-base text-ink placeholder:text-ink-muted transition-colors focus:border-accent focus:bg-raised focus:ring-1 focus:ring-accent"
+        className="h-14 w-full rounded-xl border border-control-border bg-background pl-12 pr-12 text-base text-ink placeholder:text-ink-muted transition-colors focus:border-accent focus:bg-raised focus:ring-1 focus:ring-accent"
       />
 
       {value && (
         <button
+          type="button"
           onClick={() => {
             onChange('');
             inputRef.current?.focus();
