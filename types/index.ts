@@ -39,6 +39,19 @@ export interface Category {
 // Profile Types
 // ─────────────────────────────────────────────
 
+/** A curated project that links directly to a GitHub repository. */
+export interface FeaturedProject {
+  name: string;
+  githubUrl: string;
+}
+
+/** Zero to three projects, ordered by the curator's preference. */
+export type FeaturedProjects =
+  | []
+  | [FeaturedProject]
+  | [FeaturedProject, FeaturedProject]
+  | [FeaturedProject, FeaturedProject, FeaturedProject];
+
 /** A single curated GitHub engineer profile. */
 export interface GitHubProfile {
   /** Unique, URL-safe identifier (usually the GitHub username) */
@@ -55,6 +68,8 @@ export interface GitHubProfile {
   githubUrl: string;
   websiteUrl?: string;
   twitterUsername?: string;
+  /** Optional public repositories featured on the profile card (maximum three). */
+  featuredProjects?: FeaturedProjects;
   /** Whether this person is the maintainer of FEMOG (pinned + special badge) */
   maintainer?: boolean;
 }

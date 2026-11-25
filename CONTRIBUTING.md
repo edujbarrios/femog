@@ -46,6 +46,9 @@ Thank you for considering contributing to FEMOG! This document explains how to a
      company: 'Company or @org',
      websiteUrl: 'https://example.com',
      twitterUsername: 'handle',           // without the @
+     featuredProjects: [
+       { name: 'Example Project', githubUrl: 'https://github.com/github-username/example-project' },
+     ],                                  // up to three public repositories
    }
    ```
 
@@ -66,6 +69,8 @@ Thank you for considering contributing to FEMOG! This document explains how to a
    | `'open-source'` | Open Source |
 
    A profile can belong to **multiple** categories: `categories: ['ai', 'open-source']`.
+
+   For `featuredProjects`, use zero to three distinct public GitHub repositories that showcase the engineer's work. Verify each URL, order projects by relevance, and omit the field if none are available.
 
 4. Submit a pull request with the title `feat: add profile for @username`.
 

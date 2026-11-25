@@ -3,7 +3,7 @@ import {
   MapPin,
   Building2,
   ExternalLink,
-  Star,
+  Github,
   Globe,
   Wrench,
 } from 'lucide-react';
@@ -17,6 +17,7 @@ interface ProfileCardProps {
 
 export function ProfileCard({ profile }: ProfileCardProps) {
   const primaryCategory = getCategoryById(profile.categories[0]);
+  const featuredProjects = profile.featuredProjects?.slice(0, 3) ?? [];
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-teal-900/40 bg-[#0c1a18] transition-all duration-300 hover:-translate-y-1 hover:border-teal-700/40 hover:shadow-2xl hover:shadow-teal-950/60 animate-fade-in">
@@ -115,6 +116,32 @@ export function ProfileCard({ profile }: ProfileCardProps) {
             </span>
           )}
         </div>
+
+        {/* Featured projects */}
+        {featuredProjects.length > 0 && (
+          <div className="mt-4">
+            <h4 className="mb-2 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-teal-300/80">
+              <Github size={12} aria-hidden="true" />
+              Featured projects
+            </h4>
+            <ul className="space-y-1.5">
+              {featuredProjects.map((project) => (
+                <li key={project.githubUrl}>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.name} on GitHub (opens in a new tab)`}
+                    className="flex items-center justify-between gap-2 rounded-lg border border-teal-700/25 bg-teal-950/25 px-2.5 py-2 text-xs font-medium text-teal-200/90 transition-colors hover:border-teal-400/50 hover:bg-teal-900/40 hover:text-teal-100 focus-visible:ring-2 focus-visible:ring-teal-400/60"
+                  >
+                    <span className="min-w-0 break-words">{project.name}</span>
+                    <ExternalLink size={12} className="shrink-0 text-teal-400/80" aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Divider */}
         <div className="mt-4 border-t border-white/5" />

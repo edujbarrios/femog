@@ -22,6 +22,7 @@ Inspired by [Remote In Tech](https://remoteintech.company/), the project is inte
 - Search by name, GitHub username, biography, technology tag, company or location.
 - Filter by one or more of the 11 engineering disciplines. A profile matches if it belongs to **any** selected discipline; search further narrows the results.
 - Browse profile cards with biographies, skills, category badges and links to GitHub or personal websites when available.
+- Discover up to three hand-picked projects per engineer, each linking directly to its public GitHub repository.
 - See directory statistics and category counts calculated from the curated dataset.
 
 Profile details are stored in TypeScript files and filtering runs in the browser. No database, GitHub API token or account is needed to use the directory. Profile avatars are loaded from GitHub.
@@ -86,7 +87,17 @@ Required fields:
 }
 ```
 
-Optional fields: `location`, `company`, `websiteUrl` and `twitterUsername` (without the @). The optional `maintainer` flag is reserved for FEMOG maintainers.
+Optional fields: `location`, `company`, `websiteUrl`, `twitterUsername` (without the @) and `featuredProjects`. The optional `maintainer` flag is reserved for FEMOG maintainers.
+
+To showcase an engineer's work, include up to three public GitHub repositories in the profile object:
+
+```ts
+featuredProjects: [
+  { name: 'Example Project', githubUrl: 'https://github.com/github-username/example-project' },
+],
+```
+
+Use the project's display name and its full, verified GitHub repository URL. Projects appear in the listed order. Omit the field or use an empty array if there are no featured projects.
 
 Choose an active, public GitHub profile with meaningful open-source contributions or technical work. Avoid duplicate entries, keep bios factual, and use relevant lowercase tags. Do not invent missing details.
 

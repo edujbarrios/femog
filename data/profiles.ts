@@ -53,6 +53,10 @@ import type { GitHubProfile } from '@/types';
  * - twitterUsername?: string
  *   Twitter/X username (without @).
  *
+ * - featuredProjects?: FeaturedProjects
+ *   Up to three public GitHub repositories, each with a name and githubUrl.
+ *   Omit this field or use an empty array if no projects are available.
+ *
  * - maintainer?: boolean
  *   Set to true ONLY for project maintainers.
  *
@@ -75,6 +79,11 @@ export const PROFILES: GitHubProfile[] = [
     tags: ['LLM', 'next.js', 'python', 'typescript', 'open-source'],
     githubUrl: 'https://github.com/edujbarrios',
     twitterUsername: 'edujbarrios',
+    featuredProjects: [
+      { name: 'FEMOG', githubUrl: 'https://github.com/edujbarrios/femog' },
+      { name: 'ASTscribe', githubUrl: 'https://github.com/edujbarrios/astscribe' },
+      { name: 'TrainLens', githubUrl: 'https://github.com/edujbarrios/trainlens' },
+    ],
     maintainer: true,
   },
 ];
