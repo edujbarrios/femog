@@ -17,18 +17,18 @@ export function ProfileGrid({
 }: ProfileGridProps) {
   if (profiles.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/10 py-24 text-center">
-        <Users size={36} className="mb-4 text-white/15" aria-hidden="true" />
-        <h3 className="text-base font-semibold text-white/50">
+      <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-control-border bg-surface px-4 py-16 text-center">
+        <Users size={36} className="mb-4 text-ink-muted" aria-hidden="true" />
+        <h3 className="text-base font-semibold text-ink-secondary">
           No profiles match your filters
         </h3>
-        <p className="mt-2 text-sm text-white/25">
+        <p className="mt-2 text-sm text-ink-muted">
           Try a different search term or fewer category filters.
         </p>
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}
-            className="mt-6 rounded-lg border border-teal-700/40 px-4 py-2 text-sm text-teal-400/80 transition hover:border-teal-500/60 hover:text-teal-300"
+            className="mt-6 rounded-lg border border-control-border bg-raised px-4 py-2 text-sm text-accent transition hover:border-accent hover:text-accent-hover"
           >
             Clear all filters
           </button>

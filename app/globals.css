@@ -4,14 +4,20 @@
 
 /* ── CSS Variables ───────────────────────────────────── */
 :root {
-  --bg: #080e0d;
-  --surface: #0e1a19;
-  --border: rgba(255, 255, 255, 0.08);
-  --text-primary: #e6edf3;
-  --text-muted: rgba(255, 255, 255, 0.45);
-  --brand: #2dd4bf;
-  --brand-dim: rgba(45, 212, 191, 0.15);
-  --brand-border: rgba(45, 212, 191, 0.35);
+  --background: #0b1418;
+  --surface: #142229;
+  --raised: #1d3038;
+  --surface-hover: #263d45;
+  --line: #3c555b;
+  --control-border: #668087;
+  --ink: #f1f7f8;
+  --ink-secondary: #cbd8dd;
+  --ink-muted: #aabdc3;
+  --accent: #7eead6;
+  --accent-hover: #a7f3e6;
+  --accent-solid: #5eead4;
+  --accent-ink: #0b2524;
+  color-scheme: dark;
 }
 
 /* ── Base ────────────────────────────────────────────── */
@@ -27,8 +33,8 @@ html {
 }
 
 body {
-  background: var(--bg);
-  color: var(--text-primary);
+  background: var(--background);
+  color: var(--ink);
   min-height: 100dvh;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
@@ -44,23 +50,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--line);
   border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--control-border);
 }
 
 /* ── Select dropdowns in dark mode ───────────────────── */
 select option {
-  background-color: #0c1a18;
-  color: #e6edf3;
+  background-color: var(--surface);
+  color: var(--ink);
 }
 
 /* ── Focus visible ───────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid rgba(45, 212, 191, 0.6);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -70,4 +76,23 @@ select option {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+::selection {
+  background: var(--accent-solid);
+  color: var(--accent-ink);
+}
+
+/* Respect reduced-motion preferences without hiding any content. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

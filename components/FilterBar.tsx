@@ -4,7 +4,7 @@ import { CATEGORIES } from '@/data/categories';
 import { PROFILES } from '@/data/profiles';
 import type { CategoryId } from '@/types';
 import { cn } from '@/lib/utils';
-import { SlidersHorizontal } from 'lucide-react';
+import { Check, SlidersHorizontal } from 'lucide-react';
 
 interface FilterBarProps {
   selectedCategories: CategoryId[];
@@ -31,7 +31,7 @@ export function FilterBar({
     <div className="space-y-4">
       {/* Category pill buttons */}
       <div>
-        <h3 className="mb-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-white/35">
+        <h3 className="mb-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-ink-muted">
           <SlidersHorizontal size={11} aria-hidden="true" />
           Filter by role
         </h3>
@@ -45,10 +45,10 @@ export function FilterBar({
                 onClick={() => onToggleCategory(cat.id)}
                 aria-pressed={isActive}
                 className={cn(
-                  'inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-all duration-150',
+                  'inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors duration-150',
                   isActive
-                    ? 'scale-[1.04] shadow-md'
-                    : 'border-white/10 bg-white/5 text-white/45 hover:border-white/20 hover:bg-white/8 hover:text-white/70',
+                    ? 'ring-1 ring-inset ring-current'
+                    : 'border-control-border bg-surface text-ink-secondary hover:border-accent hover:bg-raised hover:text-ink',
                 )}
                 style={
                   isActive
@@ -60,12 +60,12 @@ export function FilterBar({
                     : undefined
                 }
               >
-                <span aria-hidden="true">{cat.icon}</span>
+                {isActive ? <Check size={14} aria-hidden="true" /> : <span aria-hidden="true">{cat.icon}</span>}
                 {cat.label}
                 <span
                   className={cn(
-                    'rounded-full px-1.5 py-px text-[10px] font-semibold',
-                    isActive ? 'bg-white/20' : 'bg-white/8 text-white/35',
+                    'rounded-full px-1.5 py-px text-xs font-semibold tabular-nums',
+                    isActive ? 'bg-background' : 'bg-raised text-ink-secondary',
                   )}
                 >
                   {count}
@@ -78,9 +78,9 @@ export function FilterBar({
 
       {/* Results count */}
       <div className="flex items-center">
-        <p className="text-sm text-white/35">
+        <p className="text-sm text-ink-muted" aria-live="polite" aria-atomic="true">
           Showing{' '}
-          <span className="font-semibold text-white/65">{resultCount}</span>{' '}
+          <span className="font-semibold text-ink-secondary">{resultCount}</span>{' '}
           of {totalCount} profiles
         </p>
       </div>

@@ -6,10 +6,10 @@ interface HeroSectionProps {
 
 export function HeroSection({ totalCount }: HeroSectionProps) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-teal-900/40 bg-gradient-to-br from-teal-950/50 via-[#0e1a19] to-emerald-950/30 p-8 sm:p-12">
+    <div className="relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-[#16332f] via-[#142229] to-[#102428] p-8 sm:p-12">
       {/* Decorative glows */}
       <div
-        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-teal-600/12 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-teal-600/10 blur-3xl"
         aria-hidden="true"
       />
       <div
@@ -19,30 +19,30 @@ export function HeroSection({ totalCount }: HeroSectionProps) {
 
       <div className="relative">
         {/* Label chip */}
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-500/25 bg-teal-500/10 px-3.5 py-1 text-xs font-medium text-teal-300">
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-control-border bg-[#173b35] px-3.5 py-1 text-xs font-medium text-accent">
           <Sparkles size={12} aria-hidden="true" />
           Discover exceptional engineers
         </div>
 
         {/* Headline */}
-        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
           Find Engineering{' '}
-          <span className="bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-teal-200 via-emerald-300 to-cyan-200 bg-clip-text text-transparent">
             Masters
           </span>{' '}
           on GitHub
         </h1>
 
         {/* Subheading */}
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/55 sm:text-lg">
-          A curated directory of{' '}
-          <span className="font-semibold text-white/75">{totalCount} curated {totalCount === 1 ? 'engineer' : 'engineers'}</span>{' '}
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-secondary sm:text-lg">
+          Discover{' '}
+          <span className="font-semibold text-ink">{totalCount} curated {totalCount === 1 ? 'engineer' : 'engineers'}</span>{' '}
           across AI, frontend, backend, DevOps, and more. Find your next
           inspiration, role model, or open-source hero.
         </p>
 
         {/* Category quick-glimpse */}
-        <div className="mt-8 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-white/30">
+        <div className="mt-8 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-ink-muted">
           {[
             '🤖 AI Researchers',
             '⚙️ Backend Engineers',
@@ -54,7 +54,7 @@ export function HeroSection({ totalCount }: HeroSectionProps) {
             <span key={item} className="flex items-center gap-3">
               {item}
               {i < arr.length - 1 && (
-                <span className="text-white/15" aria-hidden="true">
+                <span className="text-ink-muted" aria-hidden="true">
                   ·
                 </span>
               )}

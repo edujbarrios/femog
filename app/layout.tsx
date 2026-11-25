@@ -66,7 +66,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
       </head>
       <body
-        className={`${inter.variable} font-sans bg-[#080e0d] text-white antialiased`}
+        className={`${inter.variable} font-sans bg-background text-ink antialiased`}
         suppressHydrationWarning
       >
         <Header />

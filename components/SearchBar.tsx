@@ -19,7 +19,7 @@ export function SearchBar({
   return (
     <div className="relative w-full">
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-        <Search size={16} className="text-white/30" aria-hidden="true" />
+        <Search size={16} className="text-ink-muted" aria-hidden="true" />
       </div>
 
       <input
@@ -29,7 +29,7 @@ export function SearchBar({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         aria-label="Search profiles"
-        className="h-11 w-full rounded-xl border border-white/10 bg-white/5 pl-11 pr-10 text-sm text-white placeholder:text-white/25 transition focus:border-teal-500/50 focus:bg-white/8 focus:outline-none focus:ring-1 focus:ring-teal-500/25"
+        className="h-12 w-full rounded-xl border border-control-border bg-surface pl-11 pr-12 text-base text-ink placeholder:text-ink-muted transition-colors focus:border-accent focus:bg-raised focus:ring-1 focus:ring-accent"
       />
 
       {value && (
@@ -39,7 +39,7 @@ export function SearchBar({
             inputRef.current?.focus();
           }}
           aria-label="Clear search"
-          className="absolute inset-y-0 right-0 flex items-center pr-4 text-white/25 transition hover:text-white/60"
+          className="absolute inset-y-1 right-1 flex w-10 items-center justify-center rounded-lg text-ink-secondary transition hover:bg-surface-hover hover:text-ink"
         >
           <X size={15} />
         </button>

@@ -20,17 +20,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
   const featuredProjects = profile.featuredProjects?.slice(0, 3) ?? [];
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-teal-900/40 bg-[#0c1a18] transition-all duration-300 hover:-translate-y-1 hover:border-teal-700/40 hover:shadow-2xl hover:shadow-teal-950/60 animate-fade-in">
-      {/* Maintainer badge */}
-      {profile.maintainer && (
-        <div className="absolute right-3 top-3 z-10">
-          <span className="inline-flex items-center gap-1 rounded-full border border-teal-400/35 bg-teal-500/15 px-2 py-0.5 text-[10px] font-semibold text-teal-300">
-            <Wrench size={9} aria-hidden="true" />
-            Maintainer
-          </span>
-        </div>
-      )}
-
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-200 hover:border-control-border">
       {/* Top gradient accent based on primary category */}
       <div
         className="h-[3px] w-full shrink-0"
@@ -51,35 +41,43 @@ export function ProfileCard({ profile }: ProfileCardProps) {
               alt={`${profile.name}'s GitHub avatar`}
               width={52}
               height={52}
-              className="rounded-full ring-2 ring-teal-700/25 ring-offset-2 ring-offset-[#0c1a18]"
+              className="rounded-full ring-2 ring-control-border ring-offset-2 ring-offset-surface"
               unoptimized
             />
           </div>
           <div className="min-w-0 flex-1 pt-0.5">
-            <h3 className="truncate font-semibold text-white leading-tight">
+            <h3 className="break-words font-semibold text-ink leading-tight">
               {profile.name}
             </h3>
             <a
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-0.5 inline-block text-sm text-teal-400 transition hover:text-teal-300"
+              className="mt-0.5 inline-block break-all text-sm text-accent transition hover:text-accent-hover hover:underline"
             >
               @{profile.username}
             </a>
+            {profile.maintainer && (
+              <div className="mt-1.5">
+                <span className="inline-flex items-center gap-1 rounded-full border border-control-border bg-[#173b35] px-2 py-0.5 text-xs font-semibold text-accent">
+                  <Wrench size={11} aria-hidden="true" />
+                  Maintainer
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Meta: company + location */}
         <div className="mt-3 space-y-1">
           {profile.company && (
-            <div className="flex items-center gap-1.5 text-xs text-white/35">
+            <div className="flex items-center gap-1.5 text-xs text-ink-muted">
               <Building2 size={11} aria-hidden="true" />
               <span className="truncate">{profile.company}</span>
             </div>
           )}
           {profile.location && (
-            <div className="flex items-center gap-1.5 text-xs text-white/35">
+            <div className="flex items-center gap-1.5 text-xs text-ink-muted">
               <MapPin size={11} aria-hidden="true" />
               <span className="truncate">{profile.location}</span>
             </div>
@@ -87,7 +85,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         </div>
 
         {/* Bio */}
-        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-white/55">
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-secondary">
           {profile.bio}
         </p>
 
@@ -105,13 +103,13 @@ export function ProfileCard({ profile }: ProfileCardProps) {
           {profile.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="rounded-md bg-white/5 px-1.5 py-0.5 text-[11px] text-white/35"
+              className="rounded-md bg-raised px-1.5 py-0.5 text-xs text-ink-secondary"
             >
               #{tag}
             </span>
           ))}
           {profile.tags.length > 4 && (
-            <span className="rounded-md bg-white/5 px-1.5 py-0.5 text-[11px] text-white/25">
+            <span className="rounded-md bg-raised px-1.5 py-0.5 text-xs text-ink-muted">
               +{profile.tags.length - 4}
             </span>
           )}
@@ -120,7 +118,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         {/* Featured projects */}
         {featuredProjects.length > 0 && (
           <div className="mt-4">
-            <h4 className="mb-2 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-teal-300/80">
+            <h4 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accent">
               <Github size={12} aria-hidden="true" />
               Featured projects
             </h4>
@@ -131,18 +129,18 @@ export function ProfileCard({ profile }: ProfileCardProps) {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start justify-between gap-2 rounded-lg border border-teal-700/25 bg-teal-950/25 px-2.5 py-2 text-xs font-medium text-teal-200/90 transition-colors hover:border-teal-400/50 hover:bg-teal-900/40 hover:text-teal-100 focus-visible:ring-2 focus-visible:ring-teal-400/60"
+                    className="flex items-start justify-between gap-2 rounded-lg border border-control-border bg-raised px-3 py-2.5 text-sm font-semibold text-accent transition-colors hover:border-accent hover:bg-surface-hover hover:text-accent-hover"
                   >
                     <span className="min-w-0 break-words">
                       <span className="block">{project.name}</span>
                       {project.description?.trim() && (
-                        <span className="mt-1 block text-xs font-normal leading-relaxed text-slate-300">
+                        <span className="mt-1 block text-xs font-normal leading-relaxed text-ink-secondary sm:text-sm">
                           {project.description.trim()}
                         </span>
                       )}
                       <span className="sr-only"> (opens on GitHub in a new tab)</span>
                     </span>
-                    <ExternalLink size={12} className="mt-0.5 shrink-0 text-teal-400/80" aria-hidden="true" />
+                    <ExternalLink size={12} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                   </a>
                 </li>
               ))}
@@ -151,7 +149,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
         )}
 
         {/* Divider */}
-        <div className="mt-4 border-t border-white/5" />
+        <div className="mt-4 border-t border-line" />
 
         {/* CTA row */}
         <div className="mt-4 flex items-center justify-end">
@@ -162,7 +160,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Personal website"
-                className="inline-flex items-center justify-center rounded-lg bg-white/5 p-1.5 text-white/40 transition hover:bg-white/10 hover:text-white/70"
+                className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-control-border bg-raised p-2 text-accent transition hover:border-accent hover:bg-surface-hover hover:text-accent-hover"
               >
                 <Globe size={13} aria-hidden="true" />
               </a>
@@ -171,8 +169,9 @@ export function ProfileCard({ profile }: ProfileCardProps) {
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-white/8 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:bg-teal-600 hover:text-white"
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-accent-solid px-4 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-hover"
             >
+              <Github size={15} aria-hidden="true" />
               Follow
               <ExternalLink size={10} aria-hidden="true" />
             </a>

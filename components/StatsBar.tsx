@@ -10,7 +10,7 @@ export function StatsBar() {
       icon: Users,
       label: 'Curated profiles',
       value: PROFILES.length,
-      color: 'text-teal-400',
+      color: 'text-accent',
     },
     {
       icon: Tag,
@@ -31,11 +31,11 @@ export function StatsBar() {
       {stats.map(({ icon: Icon, label, value, color }) => (
         <div
           key={label}
-          className="flex flex-col items-center justify-center rounded-xl border border-white/8 bg-white/4 p-4 text-center"
+          className="flex flex-col items-center justify-center rounded-xl border border-line bg-surface p-3 sm:p-4 text-center"
         >
           <Icon size={18} className={`mb-2 ${color}`} aria-hidden="true" />
-          <div className="text-2xl font-bold text-white">{value}</div>
-          <div className="mt-0.5 text-xs text-white/35">{label}</div>
+          <div className="text-2xl font-bold tabular-nums text-ink">{value}</div>
+          <div className="mt-0.5 text-xs text-ink-muted">{label}</div>
         </div>
       ))}
     </div>

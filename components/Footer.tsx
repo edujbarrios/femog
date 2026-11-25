@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-teal-900/30 bg-[#060e0d]">
+    <footer className="mt-24 border-t border-line bg-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           {/* Brand */}
@@ -20,33 +20,33 @@ export function Footer() {
                   className="object-contain drop-shadow-[0_0_5px_rgba(45,212,191,0.35)]"
                 />
               </div>
-              <span className="font-bold text-white">FEMOG</span>
+              <span className="font-bold text-ink">FEMOG</span>
             </div>
-            <p className="mt-1 text-xs text-white/35">
+            <p className="mt-1 text-xs text-ink-muted">
               Find Engineering Masters on GitHub
             </p>
           </div>
 
           {/* Links */}
-          <nav className="flex items-center gap-5 text-sm text-white/40">
-            <Link href="/" className="hover:text-white/70 transition">
+          <nav className="flex items-center gap-5 text-sm text-ink-muted">
+            <Link href="/" className="hover:text-accent-hover transition">
               Home
             </Link>
-            <Link href="/about" className="hover:text-white/70 transition">
+            <Link href="/about" className="hover:text-accent-hover transition">
               About
             </Link>
             <a
               href="https://github.com/edujbarrios/femog"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white/70 transition"
+              className="hover:text-accent-hover transition"
             >
               Source
             </a>
           </nav>
 
           {/* Attribution */}
-          <p className="flex items-center gap-1.5 text-sm text-white/35">
+          <p className="flex items-center gap-1.5 text-sm text-ink-muted">
             Made with{' '}
             <Heart size={12} className="text-rose-400" aria-hidden="true" />{' '}
             by{' '}
@@ -54,14 +54,14 @@ export function Footer() {
               href="https://github.com/edujbarrios"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-white/55 transition hover:text-white"
+              className="font-medium text-ink-secondary transition hover:text-ink"
             >
               Eduardo J. Barrios
             </a>
           </p>
         </div>
 
-        <div className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-white/20">
+        <div className="mt-8 border-t border-line pt-6 text-center text-xs text-ink-muted">
           Profile data is curated manually. Not affiliated with GitHub, Inc.
         </div>
       </div>
