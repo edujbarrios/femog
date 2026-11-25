@@ -50,14 +50,17 @@ Thank you for considering contributing to FEMOG! This document explains how to a
        {
          name: 'Project One',
          githubUrl: 'https://github.com/github-username/project-one',
+         description: 'A tool for validating API responses.',
        },
        {
          name: 'Project Two',
          githubUrl: 'https://github.com/github-username/project-two',
+         description: 'A library for processing structured data.',
        },
        {
          name: 'Project Three',
          githubUrl: 'https://github.com/github-username/project-three',
+         description: 'A dashboard for visualizing application metrics.',
        },
      ],
    }
@@ -81,7 +84,7 @@ Thank you for considering contributing to FEMOG! This document explains how to a
 
    A profile can belong to **multiple** categories: `categories: ['ai', 'open-source']`.
 
-   For `featuredProjects`, aim to include three distinct public GitHub repositories that showcase the engineer's work. Each entry requires a `name` and `githubUrl`. Verify each URL and order projects by relevance. Include fewer than three if necessary; omit the field or use an empty array if none are available.
+   For `featuredProjects`, aim to include three distinct public GitHub repositories that showcase the engineer's work. Each entry requires a `name` and verified `githubUrl`; the optional `description` is a single concise, factual sentence explaining what the project does. It appears below the project name on the card. Omit descriptions if unknown, order projects by relevance, and include fewer than three if necessary. Omit the entire field or use an empty array if none are available.
 
 4. Submit a pull request with the title `feat: add profile for @username`.
 

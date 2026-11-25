@@ -131,11 +131,18 @@ export function ProfileCard({ profile }: ProfileCardProps) {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`View ${project.name} on GitHub (opens in a new tab)`}
-                    className="flex items-center justify-between gap-2 rounded-lg border border-teal-700/25 bg-teal-950/25 px-2.5 py-2 text-xs font-medium text-teal-200/90 transition-colors hover:border-teal-400/50 hover:bg-teal-900/40 hover:text-teal-100 focus-visible:ring-2 focus-visible:ring-teal-400/60"
+                    className="flex items-start justify-between gap-2 rounded-lg border border-teal-700/25 bg-teal-950/25 px-2.5 py-2 text-xs font-medium text-teal-200/90 transition-colors hover:border-teal-400/50 hover:bg-teal-900/40 hover:text-teal-100 focus-visible:ring-2 focus-visible:ring-teal-400/60"
                   >
-                    <span className="min-w-0 break-words">{project.name}</span>
-                    <ExternalLink size={12} className="shrink-0 text-teal-400/80" aria-hidden="true" />
+                    <span className="min-w-0 break-words">
+                      <span className="block">{project.name}</span>
+                      {project.description?.trim() && (
+                        <span className="mt-1 block text-xs font-normal leading-relaxed text-slate-300">
+                          {project.description.trim()}
+                        </span>
+                      )}
+                      <span className="sr-only"> (opens on GitHub in a new tab)</span>
+                    </span>
+                    <ExternalLink size={12} className="mt-0.5 shrink-0 text-teal-400/80" aria-hidden="true" />
                   </a>
                 </li>
               ))}

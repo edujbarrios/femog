@@ -54,13 +54,17 @@ import type { GitHubProfile } from '@/types';
  *   Twitter/X username (without @).
  *
  * - featuredProjects?: FeaturedProjects
- *   Up to three verified public GitHub repositories, in display order:
+ *   Up to three verified public GitHub repositories, in display order.
+ *   Each entry requires name and githubUrl; description is optional.
+ *   Keep descriptions factual and limited to one concise sentence.
  *   featuredProjects: [
- *     { name: 'Project One', githubUrl: 'https://github.com/username/project-one' },
- *     { name: 'Project Two', githubUrl: 'https://github.com/username/project-two' },
- *     { name: 'Project Three', githubUrl: 'https://github.com/username/project-three' },
+ *     {
+ *       name: 'Project One',
+ *       githubUrl: 'https://github.com/username/project-one',
+ *       description: 'A tool for validating API responses.',
+ *     },
  *   ]
- *   Include fewer if necessary, or omit this field if none are available.
+ *   Include fewer than three if necessary, or omit this field if none are available.
  *
  * - maintainer?: boolean
  *   Set to true ONLY for project maintainers.
@@ -85,9 +89,21 @@ export const PROFILES: GitHubProfile[] = [
     githubUrl: 'https://github.com/edujbarrios',
     twitterUsername: 'edujbarrios',
     featuredProjects: [
-      { name: 'FEMOG', githubUrl: 'https://github.com/edujbarrios/femog' },
-      { name: 'ASTscribe', githubUrl: 'https://github.com/edujbarrios/astscribe' },
-      { name: 'TrainLens', githubUrl: 'https://github.com/edujbarrios/trainlens' },
+      {
+        name: 'FEMOG',
+        githubUrl: 'https://github.com/edujbarrios/femog',
+        description: 'A curated directory for discovering GitHub engineers by technical discipline.',
+      },
+      {
+        name: 'ASTScribe',
+        githubUrl: 'https://github.com/edujbarrios/astscribe',
+        description: 'Explains machine learning notebooks through evidence-backed static analysis without executing their code.',
+      },
+      {
+        name: 'TrainLens',
+        githubUrl: 'https://github.com/edujbarrios/trainlens',
+        description: 'Analyzes machine learning training metrics and saved runs locally to produce findings and recommendations.',
+      },
     ],
     maintainer: true,
   },

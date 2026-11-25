@@ -43,6 +43,8 @@ export interface Category {
 export interface FeaturedProject {
   name: string;
   githubUrl: string;
+  /** Optional one-sentence summary of what the project does. */
+  description?: string;
 }
 
 /** Zero to three projects, ordered by the curator's preference. */

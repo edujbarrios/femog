@@ -20,7 +20,7 @@ Inspired by [Remote In Tech](https://remoteintech.company/), FEMOG focuses on di
 - Search by name, GitHub username, biography, technology tag, company or location.
 - Filter by one or more of the 11 engineering disciplines. A profile matches if it belongs to **any** selected discipline; search further narrows the results.
 - Browse profile cards with biographies, skills, category badges and links to GitHub or personal websites when available.
-- Discover up to three hand-picked projects per engineer, each linking directly to its public GitHub repository.
+- Discover up to three hand-picked projects per engineer, each with an optional one-sentence description and a direct link to its public GitHub repository.
 - See directory statistics and category counts calculated from the curated dataset.
 
 Profile details are stored in TypeScript files and filtering runs in the browser. No database, GitHub API token or account is needed to use the directory. Profile avatars are loaded from GitHub.
@@ -93,20 +93,35 @@ Complete profile example (replace the illustrative names and URLs with verified 
     {
       name: 'Project One',
       githubUrl: 'https://github.com/github-username/project-one',
+      description: 'A tool for validating API responses.',
     },
     {
       name: 'Project Two',
       githubUrl: 'https://github.com/github-username/project-two',
+      description: 'A library for processing structured data.',
     },
     {
       name: 'Project Three',
       githubUrl: 'https://github.com/github-username/project-three',
+      description: 'A dashboard for visualizing application metrics.',
     },
   ],
 }
 ```
 
-**Featured projects:** include up to three distinct public GitHub repositories that showcase the engineer's work. Each project needs a display name and a verified repository URL. The order in the array is the order displayed on the card. If fewer than three projects are available, include only the verified ones; omit the field or use an empty array if none are available.
+### Featured project fields
+
+Include up to three distinct public GitHub repositories that showcase the engineer's work. Projects appear in the order listed in `featuredProjects`.
+
+| Field | Required? | Description |
+| --- | --- | --- |
+| `name` | Yes | Project display name. |
+| `githubUrl` | Yes | Verified URL of the public GitHub repository. |
+| `description` | No | One concise, factual sentence explaining what the project does. |
+
+Descriptions appear below the project name inside the clickable repository link. Prefer a single short sentence describing its purpose or main capability; avoid promotional language, repeated names, and unsupported claims. If no reliable description is available, omit it rather than guessing. The link still works without a description.
+
+If fewer than three projects are available, include only the verified ones; omit `featuredProjects` or use an empty array if none are available. The three-project limit is enforced by the TypeScript profile type.
 
 The optional `maintainer` flag is reserved for FEMOG maintainers.
 
