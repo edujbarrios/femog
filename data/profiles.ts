@@ -25,15 +25,11 @@ import type { GitHubProfile } from '@/types';
  *   Short description (1–2 sentences max).
  *   Should explain what they are known for.
  *
- * - location: string
- *   Where they are based.
- *   Example: 'San Francisco, CA'
- *
  * - categories: string[]
  *   One or more categories describing their expertise.
- *   Allowed values (recommended):
- *     'ai', 'frontend', 'backend', 'fullstack',
- *     'devops', 'systems', 'data-science', 'security', 'open-source'
+ *   Allowed values (see CategoryId in types/index.ts):
+ *     'ai', 'frontend', 'backend', 'fullstack', 'devops', 'mobile',
+ *     'systems', 'data-science', 'security', 'cloud', 'open-source'
  *
  * - tags: string[]
  *   Specific technologies or topics.
@@ -44,6 +40,10 @@ import type { GitHubProfile } from '@/types';
  *   Example: 'https://github.com/username'
  *
  * OPTIONAL FIELDS:
+ * - location?: string
+ *   Where they are based, if publicly known.
+ *   Example: 'San Francisco, CA'
+ *
  * - company?: string
  *   Current company or organization.
  *
@@ -54,8 +54,13 @@ import type { GitHubProfile } from '@/types';
  *   Twitter/X username (without @).
  *
  * - featuredProjects?: FeaturedProjects
- *   Up to three public GitHub repositories, each with a name and githubUrl.
- *   Omit this field or use an empty array if no projects are available.
+ *   Up to three verified public GitHub repositories, in display order:
+ *   featuredProjects: [
+ *     { name: 'Project One', githubUrl: 'https://github.com/username/project-one' },
+ *     { name: 'Project Two', githubUrl: 'https://github.com/username/project-two' },
+ *     { name: 'Project Three', githubUrl: 'https://github.com/username/project-three' },
+ *   ]
+ *   Include fewer if necessary, or omit this field if none are available.
  *
  * - maintainer?: boolean
  *   Set to true ONLY for project maintainers.

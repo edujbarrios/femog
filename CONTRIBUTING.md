@@ -28,7 +28,7 @@ Thank you for considering contributing to FEMOG! This document explains how to a
    git checkout -b feat/add-profile-username
    ```
 
-2. Open `data/profiles.ts` and append an object to the `PROFILES` array following this exact shape:
+2. Open `data/profiles.ts` and append an object to the `PROFILES` array using this complete example. Replace illustrative names and URLs with verified public information:
 
    ```typescript
    {
@@ -46,9 +46,20 @@ Thank you for considering contributing to FEMOG! This document explains how to a
      company: 'Company or @org',
      websiteUrl: 'https://example.com',
      twitterUsername: 'handle',           // without the @
-     featuredProjects: [
-       { name: 'Example Project', githubUrl: 'https://github.com/github-username/example-project' },
-     ],                                  // up to three public repositories
+     featuredProjects: [                 // up to three public repositories
+       {
+         name: 'Project One',
+         githubUrl: 'https://github.com/github-username/project-one',
+       },
+       {
+         name: 'Project Two',
+         githubUrl: 'https://github.com/github-username/project-two',
+       },
+       {
+         name: 'Project Three',
+         githubUrl: 'https://github.com/github-username/project-three',
+       },
+     ],
    }
    ```
 
@@ -70,7 +81,7 @@ Thank you for considering contributing to FEMOG! This document explains how to a
 
    A profile can belong to **multiple** categories: `categories: ['ai', 'open-source']`.
 
-   For `featuredProjects`, use zero to three distinct public GitHub repositories that showcase the engineer's work. Verify each URL, order projects by relevance, and omit the field if none are available.
+   For `featuredProjects`, aim to include three distinct public GitHub repositories that showcase the engineer's work. Each entry requires a `name` and `githubUrl`. Verify each URL and order projects by relevance. Include fewer than three if necessary; omit the field or use an empty array if none are available.
 
 4. Submit a pull request with the title `feat: add profile for @username`.
 

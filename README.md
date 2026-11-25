@@ -1,21 +1,19 @@
-<p align="center">
-  <img src="public/assets/logo.svg" alt="FEMOG — engineer discovery logo" width="120" />
-</p>
+# FEMOG <a href="https://femog.vercel.app"><img src="public/assets/logo.svg" align="right" width="160" alt="FEMOG logo — neon Git branch and magnifying glass" /></a>
 
-<h1 align="center">FEMOG</h1>
-<p align="center"><strong>Find Engineering Masters on GitHub</strong></p>
-<p align="center">Discover software engineers, researchers and open-source contributors worth learning from and following.</p>
-<p align="center">
-  <a href="https://femog.vercel.app">Explore the directory</a> ·
-  <a href="#getting-started">Run locally</a> ·
-  <a href="CONTRIBUTING.md">Contribute</a>
-</p>
+[![Website](https://img.shields.io/badge/Website-FEMOG-0f766e?style=flat-square&logo=vercel&logoColor=white)](https://femog.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Contributions](https://img.shields.io/badge/Contributions-welcome-0f766e?style=flat-square)](CONTRIBUTING.md)
 
-## What is FEMOG?
+**Find Engineering Masters on GitHub.**
 
-FEMOG is a manually curated directory of GitHub profiles, organized by engineering discipline. It helps developers find people whose work they can learn from, rather than rank engineers by popularity.
+FEMOG is a manually curated directory of software engineers, researchers and open-source contributors, organized by engineering discipline. Discover people whose work you can learn from, explore their featured repositories and find developers worth following.
 
-Inspired by [Remote In Tech](https://remoteintech.company/), the project is intentionally simple: a searchable directory, manually maintained profile data and direct links to GitHub. The catalog is in its early stages; contributions help it grow.
+Inspired by [Remote In Tech](https://remoteintech.company/), FEMOG focuses on discovery rather than popularity rankings. The catalog is in its early stages; contributions help it grow.
+
+[Explore the directory](https://femog.vercel.app) · [Run locally](#getting-started) · [Contribute](#contributing)
+
+<br clear="right" />
 
 ## Explore the directory
 
@@ -73,10 +71,11 @@ The easiest way to help is to suggest a public GitHub profile, correct outdated 
 2. Add an object to the `PROFILES` array in [data/profiles.ts](data/profiles.ts).
 3. Run `npm run type-check`, review your change and submit a pull request, for example `feat: add profile for @username`.
 
-Required fields:
+Complete profile example (replace the illustrative names and URLs with verified public information):
 
 ```ts
 {
+  // Required
   id: 'github-username',
   name: 'Full Name',
   username: 'github-username',
@@ -84,20 +83,32 @@ Required fields:
   categories: ['backend', 'open-source'],
   tags: ['nodejs', 'typescript'],
   githubUrl: 'https://github.com/github-username',
+
+  // Optional
+  location: 'City, Country',
+  company: 'Company or organization',
+  websiteUrl: 'https://example.com',
+  twitterUsername: 'handle',
+  featuredProjects: [
+    {
+      name: 'Project One',
+      githubUrl: 'https://github.com/github-username/project-one',
+    },
+    {
+      name: 'Project Two',
+      githubUrl: 'https://github.com/github-username/project-two',
+    },
+    {
+      name: 'Project Three',
+      githubUrl: 'https://github.com/github-username/project-three',
+    },
+  ],
 }
 ```
 
-Optional fields: `location`, `company`, `websiteUrl`, `twitterUsername` (without the @) and `featuredProjects`. The optional `maintainer` flag is reserved for FEMOG maintainers.
+**Featured projects:** include up to three distinct public GitHub repositories that showcase the engineer's work. Each project needs a display name and a verified repository URL. The order in the array is the order displayed on the card. If fewer than three projects are available, include only the verified ones; omit the field or use an empty array if none are available.
 
-To showcase an engineer's work, include up to three public GitHub repositories in the profile object:
-
-```ts
-featuredProjects: [
-  { name: 'Example Project', githubUrl: 'https://github.com/github-username/example-project' },
-],
-```
-
-Use the project's display name and its full, verified GitHub repository URL. Projects appear in the listed order. Omit the field or use an empty array if there are no featured projects.
+The optional `maintainer` flag is reserved for FEMOG maintainers.
 
 Choose an active, public GitHub profile with meaningful open-source contributions or technical work. Avoid duplicate entries, keep bios factual, and use relevant lowercase tags. Do not invent missing details.
 
