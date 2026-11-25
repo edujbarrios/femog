@@ -72,7 +72,7 @@ export interface GitHubProfile {
   company?: string;
   /** One or more engineering categories this profile belongs to */
   categories: CategoryId[];
-  /** Technology / skill keywords for search and display */
+  /** Technology / skill keywords for display */
   tags: string[];
   githubUrl: string;
   websiteUrl?: string;
@@ -88,6 +88,5 @@ export interface GitHubProfile {
 // ─────────────────────────────────────────────
 
 export interface FilterState {
-  search: string;
   categories: CategoryId[];
 }

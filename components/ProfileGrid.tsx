@@ -34,10 +34,10 @@ export function ProfileGrid({
       <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-control-border bg-surface px-4 py-16 text-center">
         <Users size={36} className="mb-4 text-ink-muted" aria-hidden="true" />
         <h2 className="text-base font-semibold text-ink-secondary">
-          No profiles match your search
+          No profiles in the selected categories
         </h2>
         <p className="mt-2 text-sm text-ink-muted">
-          Try a different search term or fewer category filters.
+          Choose another category to discover more engineers.
         </p>
         {hasActiveFilters && (
           <button
@@ -55,7 +55,7 @@ export function ProfileGrid({
     <section aria-label="Engineer directory">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-xl font-semibold tracking-tight text-ink">
-          {hasActiveFilters ? 'Search results' : 'Maintainers'}
+          {hasActiveFilters ? 'Matching engineers' : 'Maintainers'}
         </h2>
         {hasActiveFilters && (
           <p className="text-sm text-ink-muted" role="status">

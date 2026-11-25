@@ -55,7 +55,7 @@ export default function AboutPage() {
               'Dark mode first — built the way developers like their tools.',
               'Data-driven — add profiles in one data file, or extend the category definitions and types.',
               'No GitHub API token required — profile data is curated locally; avatars are loaded from GitHub.',
-              'Inspired by Remote In Tech: clean card-based layout, category filtering, instant search.',
+              'Inspired by Remote In Tech: clean card-based layout, searchable category selection.',
               'Source-available — attributed contributions are welcome via pull request.',
             ].map((point) => (
               <li key={point} className="flex gap-2.5">

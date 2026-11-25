@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { CATEGORIES } from '@/data/categories';
 import type { CategoryId } from '@/types';
-import { Check, ChevronDown, Search, X } from 'lucide-react';
+import { Check, ChevronDown, LayoutGrid, Search, X } from 'lucide-react';
 
 interface FilterBarProps {
   selectedCategories: CategoryId[];
@@ -66,10 +66,10 @@ export function FilterBar({
             setOpen(!open);
             setQuery('');
           }}
-          className="flex min-h-14 w-full items-center justify-between gap-3 rounded-xl border border-control-border bg-background px-4 py-3 text-left text-sm font-medium text-ink transition-colors hover:border-accent hover:bg-raised sm:text-base"
+          className="flex min-h-14 w-full items-center justify-between gap-3 rounded-xl border border-accent bg-surface px-4 py-3 text-left text-base font-semibold text-accent transition-colors hover:bg-raised hover:text-accent-hover"
         >
           <span className="flex min-w-0 items-center gap-2">
-            <Search size={18} className="shrink-0 text-accent" aria-hidden="true" />
+            <LayoutGrid size={20} className="shrink-0 text-accent" aria-hidden="true" />
             <span>{selectedCategories.length ? `Categories (${selectedCategories.length})` : 'Browse categories'}</span>
           </span>
           <ChevronDown size={18} className={`shrink-0 text-accent transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true" />

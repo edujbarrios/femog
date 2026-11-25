@@ -18,14 +18,14 @@ Inspired by [Remote In Tech](https://remoteintech.company/), FEMOG focuses on di
 
 ## Explore the directory
 
-- The homepage shows only FEMOG maintainers until you enter a search or select a category.
-- Search by name, GitHub username, biography, technology tag, company, location, category or featured project name/description. Every search word must match.
-- Open **Browse categories** to search and select one or more categories, including AI / ML, MCP, AI Skills, AI Plugins and AI Agents. A profile must match **any** selected category and all text-search terms when both filters are used.
+- The homepage shows only FEMOG maintainers until you select a category.
+- Open **Browse categories** to search the category names and descriptions and select one or more topics, including AI / ML, MCP, AI Skills, AI Plugins and AI Agents.
+- Discover engineers without needing to know their names: a profile appears if it belongs to **any** selected category.
 - Explore only matching engineer cards with avatars, usernames, biographies and discipline badges. Clearing filters returns to the maintainer showcase.
 - Select a card to open the full profile, including skills, all categories and up to three featured projects with optional one-sentence descriptions and direct repository links.
 - Use **Follow on GitHub** in the profile dialog to visit the engineer's GitHub profile and follow them there.
 - Close the dialog using its close button, Escape, or the backdrop; keyboard focus returns to the selected tile.
-- See the matching profile count when search criteria are active.
+- See the matching profile count when categories are selected.
 
 Profile details are stored in TypeScript files and filtering runs in the browser. No database, GitHub API token or account is needed to use the directory. Profile avatars are loaded from GitHub.
 
@@ -134,7 +134,7 @@ Descriptions appear below the project name inside the clickable repository link 
 
 If fewer than three projects are available, include only the verified ones; omit `featuredProjects` or use an empty array if none are available. The three-project limit is enforced by the TypeScript profile type.
 
-The optional `maintainer` flag is reserved for FEMOG maintainers, who are the only profiles shown before a search or category selection.
+The optional `maintainer` flag is reserved for FEMOG maintainers, who are the only profiles shown before a category selection.
 
 Choose an active, public GitHub profile with meaningful open-source contributions or technical work. Avoid duplicate entries, keep bios factual, and use relevant lowercase tags. Do not invent missing details.
 
@@ -154,7 +154,7 @@ components/           # Engineer tiles, profile dialog, filters and navigation
 data/
   categories.ts       # Engineering discipline definitions
   profiles.ts         # Curated GitHub profiles
-hooks/useProfiles.ts  # Client-side search and filter state
+hooks/useProfiles.ts  # Client-side category filter state
 lib/utils.ts          # Filtering, sorting and utility functions
 public/assets/        # FEMOG logo (SVG and PNG fallback)
 types/index.ts        # Profile and category types

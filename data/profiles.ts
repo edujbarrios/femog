@@ -68,7 +68,7 @@ import type { GitHubProfile } from '@/types';
  *   Include fewer than three if necessary, or omit this field if none are available.
  *
  * - maintainer?: boolean
- *   Set to true ONLY for project maintainers. Only these profiles appear without search criteria.
+ *   Set to true ONLY for project maintainers. Only these profiles appear without selected categories.
  *
  * ------------------------------------------------------------------
  * IMPORTANT RULES:

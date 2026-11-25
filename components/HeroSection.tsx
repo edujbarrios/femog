@@ -5,7 +5,7 @@ export function HeroSection() {
         Find engineering masters on <span className="text-accent">GitHub.</span>
       </h1>
       <p className="mt-2 text-sm leading-relaxed text-ink-secondary sm:text-base">
-        Discover engineers, explore their work, and follow them.
+        Choose a category. Discover engineers worth following.
       </p>
     </section>
   );

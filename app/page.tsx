@@ -1,7 +1,6 @@
 'use client';
 
 import { HeroSection } from '@/components/HeroSection';
-import { SearchBar } from '@/components/SearchBar';
 import { FilterBar } from '@/components/FilterBar';
 import { ProfileGrid } from '@/components/ProfileGrid';
 import { useProfiles } from '@/hooks/useProfiles';
@@ -11,7 +10,6 @@ export default function HomePage() {
     profiles,
     filters,
     toggleCategory,
-    setSearch,
     clearFilters,
     hasActiveFilters,
   } = useProfiles();
@@ -22,9 +20,8 @@ export default function HomePage() {
         {/* Hero */}
         <HeroSection />
 
-        {/* Search + filters */}
-        <section aria-label="Find engineers" className="grid items-start gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
-          <SearchBar value={filters.search} onChange={setSearch} />
+        {/* Discover engineers by category */}
+        <section aria-label="Discover by category" className="w-full max-w-xl">
           <FilterBar
             selectedCategories={filters.categories}
             onToggleCategory={toggleCategory}

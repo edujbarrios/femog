@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import type { GitHubProfile, FilterState } from '@/types';
-import { getCategoryById } from '@/data/categories';
 
 /** Merge Tailwind classes without conflicts. */
 export function cn(...inputs: ClassValue[]): string {
@@ -19,43 +18,18 @@ export function formatCount(count: number): string {
 }
 
 /**
- * Apply search, category filters, and sort to a profiles array.
+ * Show maintainers by default, or profiles matching any selected category.
  * Returns a new array; does not mutate the input.
  */
 export function filterProfiles(
   profiles: GitHubProfile[],
   filters: FilterState,
 ): GitHubProfile[] {
-  const query = filters.search.trim().toLowerCase();
-  const hasCategories = filters.categories.length > 0;
-
-  // The landing page is a maintainer showcase, never the full directory.
-  let result = !query && !hasCategories
+  const result = filters.categories.length === 0
     ? profiles.filter((profile) => profile.maintainer === true)
-    : [...profiles];
-
-  // OR within selected categories; AND between category and text filters.
-  if (hasCategories) {
-    result = result.filter((profile) =>
-      filters.categories.some((category) => profile.categories.includes(category)),
-    );
-  }
-
-  if (query) {
-    const terms = query.split(/\s+/);
-    result = result.filter((profile) => {
-      const searchableText = [
-        profile.name, profile.username, profile.bio,
-        profile.company ?? '', profile.location ?? '',
-        ...profile.tags,
-        ...profile.categories.flatMap((id) => [id, getCategoryById(id)?.label ?? '']),
-        ...(profile.featuredProjects ?? []).flatMap((project) => [
-          project.name, project.description ?? '',
-        ]),
-      ].join(' ').toLowerCase();
-      return terms.every((term) => searchableText.includes(term));
-    });
-  }
+    : profiles.filter((profile) =>
+        filters.categories.some((category) => profile.categories.includes(category)),
+      );
 
   return result.sort((a, b) =>
     Number(Boolean(b.maintainer)) - Number(Boolean(a.maintainer))

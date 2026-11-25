@@ -97,7 +97,7 @@ Independent redistribution or deployment of FEMOG is not permitted without separ
    | `'cloud'` | Cloud Architecture |
    | `'open-source'` | Open Source |
 
-   A profile can belong to **multiple** categories: `categories: ['ai', 'mcp', 'open-source']`. Assign only categories supported by the engineer's work. Non-maintainer profiles appear only when matching active search criteria; the homepage shows maintainers only.
+   A profile can belong to **multiple** categories: `categories: ['ai', 'mcp', 'open-source']`. Assign only categories supported by the engineer's work. Non-maintainer profiles appear only when they match a selected category; the homepage shows maintainers only.
 
    For `featuredProjects`, aim to include three distinct public GitHub repositories that showcase the engineer's work. Each entry requires a `name` and verified `githubUrl`; the optional `description` is a single concise, factual sentence explaining what the project does. It appears below the project name in the profile dialog. Omit descriptions if unknown, order projects by relevance, and include fewer than three if necessary. Omit the entire field or use an empty array if none are available.
 
