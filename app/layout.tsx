@@ -15,9 +15,11 @@ export const metadata: Metadata = {
   description:
     'A curated dark-mode directory of exceptional software engineers, AI researchers, and open source contributors on GitHub. Filter by role and discover who to follow.',
   icons: {
-    icon: '/assets/logo.png',
-    shortcut: '/assets/logo.png',
-    apple: '/assets/logo.png',
+    icon: [
+      { url: '/assets/logo.svg', type: 'image/svg+xml' },
+      { url: '/assets/logo.png', type: 'image/png', sizes: '180x180' },
+    ],
+    apple: { url: '/assets/logo.png', sizes: '180x180' },
   },
   keywords: [
     'github',

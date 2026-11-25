@@ -10,12 +10,12 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="flex h-12 w-12 items-center justify-center">
             <Image
-              src="/assets/logo.png"
-              alt="FEMOG logo"
+              src="/assets/logo.svg"
+              alt=""
               width={48}
               height={48}
-              style={{ width: '48px', height: '48px' }}
-              className="drop-shadow-[0_0_8px_rgba(45,212,191,0.25)]"
+              unoptimized
+              className="drop-shadow-[0_0_8px_rgba(45,212,191,0.35)] transition group-hover:drop-shadow-[0_0_12px_rgba(45,212,191,0.55)]"
               priority
             />
           </div>

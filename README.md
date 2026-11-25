@@ -1,188 +1,121 @@
-# FEMOG — Find Engineering Masters on GitHub
-
 <p align="center">
-  <img src="public/assets/logo.png" alt="FEMOG Logo" width="300" style="margin-bottom: 16px;" />
+  <img src="public/assets/logo.svg" alt="FEMOG — engineer discovery logo" width="120" />
 </p>
 
+<h1 align="center">FEMOG</h1>
+<p align="center"><strong>Find Engineering Masters on GitHub</strong></p>
+<p align="center">Discover software engineers, researchers and open-source contributors worth learning from and following.</p>
 <p align="center">
-  <em>A curated, dark-mode directory to discover exceptional software engineers on GitHub — organized by engineering discipline.</em>
+  <a href="https://femog.vercel.app">Explore the directory</a> ·
+  <a href="#getting-started">Run locally</a> ·
+  <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 
-<p align="center">
-  <a href="https://femog.vercel.app">
-    <img src="https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel" alt="Deployed on Vercel" />
-  </a>
-  <a href="https://nextjs.org">
-    <img src="https://img.shields.io/badge/Next.js%2016-black?style=for-the-badge&logo=next.js" alt="Built with Next.js" />
-  </a>
-  <a href="https://www.typescriptlang.org">
-    <img src="https://img.shields.io/badge/TypeScript-Strict-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License: MIT" />
-  </a>
-  <a href="CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/Contributions-Welcome-2dd4bf?style=for-the-badge" alt="Contributions Welcome" />
-  </a>
-</p>
+## What is FEMOG?
 
----
+FEMOG is a manually curated directory of GitHub profiles, organized by engineering discipline. It helps developers find people whose work they can learn from, rather than rank engineers by popularity.
 
-## Overview
+Inspired by [Remote In Tech](https://remoteintech.company/), the project is intentionally simple: a searchable directory, manually maintained profile data and direct links to GitHub. The catalog is in its early stages; contributions help it grow.
 
-**FEMOG** is an open-source, fully parameterized directory for discovering influential GitHub profiles categorized by engineering domain. Inspired by [Remote In Tech](https://remoteintech.company/), FEMOG focuses on the *people* behind the code — helping developers find engineers worth following, learning from, and drawing inspiration from.
+## Explore the directory
 
-## Features
+- Search by name, GitHub username, biography, technology tag, company or location.
+- Filter by one or more of the 11 engineering disciplines. A profile matches if it belongs to **any** selected discipline; search further narrows the results.
+- Browse profile cards with biographies, skills, category badges and links to GitHub or personal websites when available.
+- See directory statistics and category counts calculated from the curated dataset.
 
-- **Dark mode first** — designed for developers, by a developer
-- **11 engineering categories** — AI, Backend, Frontend, Full Stack, DevOps, Mobile, Security, Data Science, Systems, Cloud, Open Source
-- **Instant client-side search** — filter by name, username, bio, tags, company, or location
-- **Multi-category filtering** — combine multiple role filters at once
-- **Fully parameterized** — add new profiles and labels in minutes, no logic changes required
-- **No API calls** — all data is statically curated; zero latency, zero cost
-- **Shareable** — fully static, deployed edge-globally on Vercel
+Profile details are stored in TypeScript files and filtering runs in the browser. No database, GitHub API token or account is needed to use the directory. Profile avatars are loaded from GitHub.
 
-## Tech Stack
+### Engineering disciplines
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript (strict mode) |
-| Styling | Tailwind CSS |
-| Icons | Lucide React |
-| Deployment | Vercel |
+| Category | ID |
+| --- | --- |
+| AI / ML | `ai` |
+| Backend | `backend` |
+| Frontend | `frontend` |
+| Full Stack | `fullstack` |
+| DevOps / SRE | `devops` |
+| Mobile | `mobile` |
+| Security | `security` |
+| Data Science | `data-science` |
+| Systems | `systems` |
+| Cloud | `cloud` |
+| Open Source | `open-source` |
 
-## Getting Started
+## Getting started
+
+**Requirements:** Node.js 20.9 or newer, npm and Git.
 
 ```bash
-# Clone the repository
 git clone https://github.com/edujbarrios/femog.git
 cd femog
-
-# Install dependencies
-npm install
-
-# Start the development server
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000). No environment variables or API credentials are required for local development.
 
----
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run type-check` | Check TypeScript types |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build after building |
 
 ## Contributing
 
-Contributions are very welcome! The two most common ways to contribute are adding a new engineer profile or adding a new category label. Both require touching only one or two data files — no component or logic changes needed.
+The easiest way to help is to suggest a public GitHub profile, correct outdated information or add a missing engineering discipline. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guidelines.
 
-### Adding a New Profile
+### Add a profile
 
-1. Open `data/profiles.ts`
-2. Append a new object to the `PROFILES` array following this exact shape:
+1. Fork the repository and create a branch.
+2. Add an object to the `PROFILES` array in [data/profiles.ts](data/profiles.ts).
+3. Run `npm run type-check`, review your change and submit a pull request, for example `feat: add profile for @username`.
 
-```typescript
+Required fields:
+
+```ts
 {
-  // Required
-  id: 'github-username',               // unique, URL-safe (use the GitHub username)
+  id: 'github-username',
   name: 'Full Name',
-  username: 'github-username',         // GitHub handle (no @)
-  bio: 'Short bio (1–2 sentences)',
-  categories: ['backend'],             // one or more CategoryId values (see below)
-  tags: ['nodejs', 'golang'],          // skill / tech keywords shown on the card
-  githubUrl: 'https://github.com/username',
-
-  // Optional
-  location: 'City, Country',
-  company: 'Company or @org',
-  websiteUrl: 'https://example.com',
-  twitterUsername: 'handle',           // without the @
+  username: 'github-username',
+  bio: 'One or two factual sentences about their technical work.',
+  categories: ['backend', 'open-source'],
+  tags: ['nodejs', 'typescript'],
+  githubUrl: 'https://github.com/github-username',
 }
 ```
 
-3. Submit a pull request with the title `feat: add profile for @username`
+Optional fields: `location`, `company`, `websiteUrl` and `twitterUsername` (without the @). The optional `maintainer` flag is reserved for FEMOG maintainers.
 
-**Criteria for inclusion:** the engineer should have made significant open source contributions or published influential technical content, and their GitHub profile must be public and active.
+Choose an active, public GitHub profile with meaningful open-source contributions or technical work. Avoid duplicate entries, keep bios factual, and use relevant lowercase tags. Do not invent missing details.
 
-### Adding a New Label (Category)
+### Add a category
 
-Adding a new engineering discipline label takes two small steps:
+1. Extend the `CategoryId` union in [types/index.ts](types/index.ts).
+2. Add its display definition to `CATEGORIES` in [data/categories.ts](data/categories.ts), including its label, description, colors and icon.
+3. Assign the new ID to relevant profiles in `data/profiles.ts`.
 
-**Step 1 — Register the ID** in `types/index.ts`:
+The filter bar, category badges and statistics use these definitions automatically; no UI logic changes are needed.
 
-```typescript
-// Before
-export type CategoryId =
-  | 'ai' | 'backend' | 'frontend' | ...;
+## Project structure
 
-// After — append your new id
-export type CategoryId =
-  | 'ai' | 'backend' | 'frontend' | ... | 'your-new-label';
+```text
+app/                  # Next.js pages, layout and global styles
+components/           # Directory UI, profile cards, filters and navigation
+data/
+  categories.ts       # Engineering discipline definitions
+  profiles.ts         # Curated GitHub profiles
+hooks/useProfiles.ts  # Client-side search and filter state
+lib/utils.ts          # Filtering, sorting and utility functions
+public/assets/        # FEMOG logo (SVG and PNG fallback)
+types/index.ts        # Profile and category types
 ```
 
-**Step 2 — Add the display definition** in `data/categories.ts`:
+**Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS and Lucide React. The project is configured for deployment on Vercel.
 
-```typescript
-{
-  id: 'your-new-label',
-  label: 'Human-Readable Label',        // shown in the filter bar & badges
-  description: 'One sentence summary',  // shown on the About page
-  color: '#a5f3fc',                     // text / icon color (hex)
-  bgColor: 'rgba(34, 211, 238, 0.12)', // badge background (semi-transparent)
-  borderColor: 'rgba(34, 211, 238, 0.35)',
-  icon: '🔧',                           // emoji shown next to the label
-}
-```
+## Credits
 
-That's it — the filter pill, profile badge, and category count will all appear automatically. No component changes required.
+Created by [Eduardo J. Barrios](https://github.com/edujbarrios). FEMOG is an independent project and is not affiliated with GitHub, Inc.
 
-3. Tag any existing profiles that belong to the new category by adding your new ID to their `categories` array in `data/profiles.ts`.
-
-### Commit Convention
-
-```
-feat:     add new profile or category
-fix:      fix incorrect data (bio, follower count, etc.)
-style:    UI / CSS changes with no logic impact
-docs:     documentation only
-chore:    tooling, config, dependencies
-refactor: code restructuring, no behavior change
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guidelines.
-
----
-
-## Project Structure
-
-```
-├── app/                  # Next.js App Router pages
-│   ├── about/            # About page
-│   ├── globals.css       # Global styles + Tailwind directives
-│   ├── layout.tsx        # Root layout with Header / Footer
-│   └── page.tsx          # Main directory page
-├── components/           # React UI components
-│   ├── ui/               # Primitive, reusable components
-│   │   ├── Badge.tsx
-│   │   └── Button.tsx
-│   ├── CategoryBadge.tsx
-│   ├── FilterBar.tsx
-│   ├── Footer.tsx
-│   ├── Header.tsx
-│   ├── HeroSection.tsx
-│   ├── ProfileCard.tsx
-│   ├── ProfileGrid.tsx
-│   ├── SearchBar.tsx
-│   └── StatsBar.tsx
-├── data/                 # ✏️ Edit these to add profiles & labels
-│   ├── categories.ts     # Category definitions (colors, icons, descriptions)
-│   └── profiles.ts       # Engineer profile entries
-├── hooks/
-│   └── useProfiles.ts    # Filtering and search state
-├── lib/
-│   └── utils.ts          # filterProfiles(), cn()
-└── types/
-    └── index.ts          # TypeScript type definitions
-```
-
----
-
-MIT © [Eduardo J. Barrios](https://github.com/edujbarrios)
+**License:** The project has been described as MIT-licensed, but a standalone license file is not currently included. Confirm the applicable terms with the maintainer before redistribution.

@@ -53,8 +53,8 @@ export default function AboutPage() {
           <ul className="space-y-2 text-[15px] leading-relaxed text-white/55">
             {[
               'Dark mode first — built the way developers like their tools.',
-              'Fully parameterized — adding a profile or category requires changing only one data file.',
-              'No API calls, no rate limits — all data is curated and static, ensuring zero-latency loads.',
+              'Data-driven — add profiles in one data file, or extend the category definitions and types.',
+              'No GitHub API token required — profile data is curated locally; avatars are loaded from GitHub.',
               'Inspired by Remote In Tech: clean card-based layout, category filtering, instant search.',
               'Open source — contributions are welcome via pull request.',
             ].map((point) => (

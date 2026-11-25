@@ -10,13 +10,14 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center justify-center gap-2 sm:justify-start">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md overflow-hidden bg-white">
+              <div className="flex h-6 w-6 items-center justify-center rounded-md">
                 <Image
-                  src="/assets/logo.png"
-                  alt="FEMOG logo"
+                  src="/assets/logo.svg"
+                  alt=""
                   width={24}
                   height={24}
-                  className="object-contain"
+                  unoptimized
+                  className="object-contain drop-shadow-[0_0_5px_rgba(45,212,191,0.35)]"
                 />
               </div>
               <span className="font-bold text-white">FEMOG</span>
@@ -61,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-white/20">
-          Profile data is curated manually. Follower counts are approximate. Not affiliated with GitHub, Inc.
+          Profile data is curated manually. Not affiliated with GitHub, Inc.
         </div>
       </div>
     </footer>

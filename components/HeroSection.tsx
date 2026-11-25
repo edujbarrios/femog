@@ -36,7 +36,7 @@ export function HeroSection({ totalCount }: HeroSectionProps) {
         {/* Subheading */}
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/55 sm:text-lg">
           A curated directory of{' '}
-          <span className="font-semibold text-white/75">{totalCount} exceptional engineers</span>{' '}
+          <span className="font-semibold text-white/75">{totalCount} curated {totalCount === 1 ? 'engineer' : 'engineers'}</span>{' '}
           across AI, frontend, backend, DevOps, and more. Find your next
           inspiration, role model, or open-source hero.
         </p>
