@@ -28,7 +28,8 @@ import type { GitHubProfile } from '@/types';
  * - categories: string[]
  *   One or more categories describing their expertise.
  *   Allowed values (see CategoryId in types/index.ts):
- *     'ai', 'frontend', 'backend', 'fullstack', 'devops', 'mobile',
+ *     'ai', 'mcp', 'ai-skills', 'ai-plugins', 'ai-agents', 'llm', 'rag',
+ *     'ai-tooling', 'frontend', 'backend', 'fullstack', 'devops', 'mobile',
  *     'systems', 'data-science', 'security', 'cloud', 'open-source'
  *
  * - tags: string[]
@@ -67,7 +68,7 @@ import type { GitHubProfile } from '@/types';
  *   Include fewer than three if necessary, or omit this field if none are available.
  *
  * - maintainer?: boolean
- *   Set to true ONLY for project maintainers.
+ *   Set to true ONLY for project maintainers. Only these profiles appear without search criteria.
  *
  * ------------------------------------------------------------------
  * IMPORTANT RULES:
@@ -84,7 +85,7 @@ export const PROFILES: GitHubProfile[] = [
     username: 'edujbarrios',
     bio: 'AI engineer and open source builder. Creator of FEMOG. Building at the intersection of LLMs, full-stack AI systems, and developer tooling.',
     location: 'Spain',
-    categories: ['ai', 'fullstack', 'open-source'],
+    categories: ['ai', 'fullstack', 'open-source', 'llm', 'ai-tooling'],
     tags: ['LLM', 'next.js', 'python', 'typescript', 'open-source'],
     githubUrl: 'https://github.com/edujbarrios',
     twitterUsername: 'edujbarrios',

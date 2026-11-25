@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import type { GitHubProfile, FilterState } from '@/types';
+import { getCategoryById } from '@/data/categories';
 
 /** Merge Tailwind classes without conflicts. */
 export function cn(...inputs: ClassValue[]): string {
@@ -25,35 +26,39 @@ export function filterProfiles(
   profiles: GitHubProfile[],
   filters: FilterState,
 ): GitHubProfile[] {
-  let result = [...profiles];
+  const query = filters.search.trim().toLowerCase();
+  const hasCategories = filters.categories.length > 0;
 
-  // Category filter (union — any matching category passes)
-  if (filters.categories.length > 0) {
-    result = result.filter((p) =>
-      filters.categories.some((cat) => p.categories.includes(cat)),
+  // The landing page is a maintainer showcase, never the full directory.
+  let result = !query && !hasCategories
+    ? profiles.filter((profile) => profile.maintainer === true)
+    : [...profiles];
+
+  // OR within selected categories; AND between category and text filters.
+  if (hasCategories) {
+    result = result.filter((profile) =>
+      filters.categories.some((category) => profile.categories.includes(category)),
     );
   }
 
-  // Full-text search across multiple fields
-  if (filters.search.trim()) {
-    const q = filters.search.toLowerCase().trim();
-    result = result.filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.username.toLowerCase().includes(q) ||
-        p.bio.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q)) ||
-        (p.company?.toLowerCase().includes(q) ?? false) ||
-        (p.location?.toLowerCase().includes(q) ?? false),
-    );
+  if (query) {
+    const terms = query.split(/\s+/);
+    result = result.filter((profile) => {
+      const searchableText = [
+        profile.name, profile.username, profile.bio,
+        profile.company ?? '', profile.location ?? '',
+        ...profile.tags,
+        ...profile.categories.flatMap((id) => [id, getCategoryById(id)?.label ?? '']),
+        ...(profile.featuredProjects ?? []).flatMap((project) => [
+          project.name, project.description ?? '',
+        ]),
+      ].join(' ').toLowerCase();
+      return terms.every((term) => searchableText.includes(term));
+    });
   }
 
-  // Sort — maintainer pinned first, then alphabetical
-  result.sort((a, b) => {
-    if (a.maintainer) return -1;
-    if (b.maintainer) return 1;
-    return a.name.localeCompare(b.name);
-  });
-
-  return result;
+  return result.sort((a, b) =>
+    Number(Boolean(b.maintainer)) - Number(Boolean(a.maintainer))
+      || a.name.localeCompare(b.name),
+  );
 }

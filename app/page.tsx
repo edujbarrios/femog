@@ -14,7 +14,6 @@ export default function HomePage() {
     setSearch,
     clearFilters,
     hasActiveFilters,
-    totalCount,
   } = useProfiles();
 
   return (
@@ -24,17 +23,15 @@ export default function HomePage() {
         <HeroSection />
 
         {/* Search + filters */}
-        <div className="space-y-4 rounded-2xl border border-line bg-surface p-4 sm:p-5">
+        <section aria-label="Find engineers" className="grid items-start gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
           <SearchBar value={filters.search} onChange={setSearch} />
           <FilterBar
             selectedCategories={filters.categories}
             onToggleCategory={toggleCategory}
-            resultCount={profiles.length}
-            totalCount={totalCount}
             onClearFilters={clearFilters}
             hasActiveFilters={hasActiveFilters}
           />
-        </div>
+        </section>
 
         {/* Profile grid */}
         <ProfileGrid

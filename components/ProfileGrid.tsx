@@ -27,13 +27,15 @@ export function ProfileGrid({
     requestAnimationFrame(() => triggerRef.current?.focus());
   }
 
+  if (!hasActiveFilters && profiles.length === 0) return null;
+
   if (profiles.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-control-border bg-surface px-4 py-16 text-center">
         <Users size={36} className="mb-4 text-ink-muted" aria-hidden="true" />
-        <h3 className="text-base font-semibold text-ink-secondary">
-          No profiles match your filters
-        </h3>
+        <h2 className="text-base font-semibold text-ink-secondary">
+          No profiles match your search
+        </h2>
         <p className="mt-2 text-sm text-ink-muted">
           Try a different search term or fewer category filters.
         </p>
@@ -51,7 +53,16 @@ export function ProfileGrid({
 
   return (
     <section aria-label="Engineer directory">
-      <h2 className="mb-4 text-xl font-semibold tracking-tight text-ink">Explore engineers</h2>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <h2 className="text-xl font-semibold tracking-tight text-ink">
+          {hasActiveFilters ? 'Search results' : 'Maintainers'}
+        </h2>
+        {hasActiveFilters && (
+          <p className="text-sm text-ink-muted" role="status">
+            {profiles.length} matching {profiles.length === 1 ? 'profile' : 'profiles'}
+          </p>
+        )}
+      </div>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {profiles.map((profile) => (
           <li key={profile.id} className="min-w-0">

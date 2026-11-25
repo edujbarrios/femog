@@ -1,16 +1,13 @@
 'use client';
 
+import { useEffect, useId, useRef, useState } from 'react';
 import { CATEGORIES } from '@/data/categories';
-import { PROFILES } from '@/data/profiles';
 import type { CategoryId } from '@/types';
-import { cn } from '@/lib/utils';
-import { Check, SlidersHorizontal, X } from 'lucide-react';
+import { Check, ChevronDown, Search, X } from 'lucide-react';
 
 interface FilterBarProps {
   selectedCategories: CategoryId[];
   onToggleCategory: (id: CategoryId) => void;
-  resultCount: number;
-  totalCount: number;
   onClearFilters: () => void;
   hasActiveFilters: boolean;
 }
@@ -18,88 +15,152 @@ interface FilterBarProps {
 export function FilterBar({
   selectedCategories,
   onToggleCategory,
-  resultCount,
-  totalCount,
   onClearFilters,
   hasActiveFilters,
 }: FilterBarProps) {
-  // Pre-compute how many profiles exist per category
-  const categoryCounts = Object.fromEntries(
-    CATEGORIES.map((cat) => [
-      cat.id,
-      PROFILES.filter((p) => p.categories.includes(cat.id)).length,
-    ]),
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const panelId = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    searchRef.current?.focus();
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+        setQuery('');
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => document.removeEventListener('pointerdown', onPointerDown);
+  }, [open]);
+
+  const normalizedQuery = query.trim().toLowerCase();
+  const visibleCategories = CATEGORIES.filter((category) =>
+    [category.label, category.id, category.description].join(' ').toLowerCase().includes(normalizedQuery),
   );
 
   return (
-    <div className="space-y-4">
-      {/* Category pill buttons */}
-      <div>
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-ink">
-            <SlidersHorizontal size={16} className="text-accent" aria-hidden="true" />
-            Filter by role
-          </h3>
+    <div className="flex flex-col gap-3">
+      <div
+        ref={rootRef}
+        className="relative"
+        onKeyDown={(event) => {
+          if (open && event.key === 'Escape') {
+            event.stopPropagation();
+            setOpen(false);
+            setQuery('');
+            triggerRef.current?.focus();
+          }
+        }}
+      >
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => {
+            setOpen(!open);
+            setQuery('');
+          }}
+          className="flex min-h-14 w-full items-center justify-between gap-3 rounded-xl border border-control-border bg-background px-4 py-3 text-left text-sm font-medium text-ink transition-colors hover:border-accent hover:bg-raised sm:text-base"
+        >
+          <span className="flex min-w-0 items-center gap-2">
+            <Search size={18} className="shrink-0 text-accent" aria-hidden="true" />
+            <span>{selectedCategories.length ? `Categories (${selectedCategories.length})` : 'Browse categories'}</span>
+          </span>
+          <ChevronDown size={18} className={`shrink-0 text-accent transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
+        </button>
+
+        <div
+          id={panelId}
+          hidden={!open}
+          className="absolute inset-x-0 top-full z-30 mt-2 rounded-2xl border border-control-border bg-surface p-3 shadow-2xl"
+        >
+          <div className="relative mb-3">
+            <Search size={16} className="pointer-events-none absolute left-3 top-3.5 text-ink-muted" aria-hidden="true" />
+            <input
+              ref={searchRef}
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search categories…"
+              aria-label="Search categories"
+              className="h-11 w-full rounded-lg border border-control-border bg-background pl-9 pr-3 text-base text-ink placeholder:text-ink-muted"
+            />
+          </div>
+          <div className="max-h-72 space-y-1 overflow-y-auto overscroll-contain" role="group" aria-label="Select categories">
+            {visibleCategories.map((category) => {
+              const selected = selectedCategories.includes(category.id);
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => onToggleCategory(category.id)}
+                  className={`flex min-h-12 w-full items-center gap-3 rounded-lg border px-3 py-2 text-left text-sm transition-colors ${selected ? 'border-accent bg-raised text-ink' : 'border-transparent text-ink-secondary hover:bg-raised hover:text-ink'}`}
+                >
+                  <span className="shrink-0" aria-hidden="true">{category.icon}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-semibold" style={{ color: category.color }}>{category.label}</span>
+                    <span className="mt-0.5 block text-xs leading-relaxed text-ink-muted">{category.description}</span>
+                  </span>
+                  {selected && <Check size={18} className="shrink-0 text-accent" aria-hidden="true" />}
+                </button>
+              );
+            })}
+            {visibleCategories.length === 0 && (
+              <p className="px-3 py-4 text-sm text-ink-muted" role="status">No matching categories.</p>
+            )}
+          </div>
+          <div className="mt-3 flex justify-end border-t border-line pt-3">
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                setQuery('');
+                triggerRef.current?.focus();
+              }}
+              className="min-h-10 rounded-lg bg-accent-solid px-4 py-2 text-sm font-semibold text-accent-ink hover:bg-accent-hover"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {(selectedCategories.length > 0 || hasActiveFilters) && (
+        <div className="flex flex-wrap items-center gap-2">
+          {selectedCategories.map((id) => {
+            const category = CATEGORIES.find((item) => item.id === id);
+            if (!category) return null;
+            return (
+              <button
+                key={id}
+                type="button"
+                aria-label={`Remove ${category.label} filter`}
+                onClick={() => onToggleCategory(id)}
+                className="inline-flex min-h-9 items-center gap-2 rounded-full border border-control-border bg-raised px-3 py-1.5 text-sm font-medium text-ink hover:border-accent"
+              >
+                <span style={{ color: category.color }}>{category.label}</span>
+                <X size={14} aria-hidden="true" />
+              </button>
+            );
+          })}
           {hasActiveFilters && (
             <button
               type="button"
               onClick={onClearFilters}
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-lg px-2 text-sm font-medium text-accent hover:bg-raised hover:text-accent-hover"
+              className="min-h-9 rounded-lg px-2 text-sm font-medium text-accent hover:bg-raised hover:text-accent-hover"
             >
-              <X size={14} aria-hidden="true" /> Clear filters
+              Clear filters
             </button>
           )}
         </div>
-        <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((cat) => {
-            const isActive = selectedCategories.includes(cat.id);
-            const count = categoryCounts[cat.id] ?? 0;
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => onToggleCategory(cat.id)}
-                aria-pressed={isActive}
-                className={cn(
-                  'inline-flex min-h-10 items-center gap-2 rounded-full border px-3 py-2 text-sm font-medium transition-colors duration-150',
-                  isActive
-                    ? 'ring-1 ring-inset ring-current'
-                    : 'border-control-border bg-raised text-ink-secondary hover:border-accent hover:bg-surface-hover hover:text-ink',
-                )}
-                style={
-                  isActive
-                    ? {
-                        color: cat.color,
-                        backgroundColor: cat.bgColor,
-                        borderColor: cat.borderColor,
-                      }
-                    : undefined
-                }
-              >
-                {isActive ? <Check size={14} aria-hidden="true" /> : <span aria-hidden="true">{cat.icon}</span>}
-                {cat.label}
-                <span
-                  className={cn(
-                    'rounded-full px-1.5 py-px text-xs font-semibold tabular-nums',
-                    isActive ? 'bg-background' : 'bg-background text-ink-secondary',
-                  )}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Results count */}
-      <div className="flex items-center">
-        <p className="text-sm text-ink-muted" aria-live="polite" aria-atomic="true">
-          Showing{' '}
-          <span className="font-semibold text-ink-secondary">{resultCount}</span>{' '}
-          of {totalCount} profiles
-        </p>
-      </div>
+      )}
     </div>
   );
 }

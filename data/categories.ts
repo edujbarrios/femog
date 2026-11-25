@@ -4,9 +4,9 @@ import type { Category, CategoryId } from '@/types';
  * All engineering categories supported by FEMOG.
  *
  * To add a new category:
- *  1. Add the ID to the `CategoryId` union in src/types/index.ts
+ *  1. Add the ID to the `CategoryId` union in types/index.ts
  *  2. Add the full definition below
- *  3. Tag any relevant profiles in src/data/profiles.ts
+ *  3. Tag any relevant profiles in data/profiles.ts
  */
 export const CATEGORIES: Category[] = [
   {
@@ -17,6 +17,69 @@ export const CATEGORIES: Category[] = [
     bgColor: 'rgba(153, 246, 228, 0.12)',
     borderColor: 'rgba(153, 246, 228, 0.58)',
     icon: '🤖',
+  },
+  {
+    id: 'mcp',
+    label: 'MCP',
+    description: 'Model Context Protocol servers, clients and integrations',
+    color: '#bae6fd',
+    bgColor: 'rgba(186, 230, 253, 0.12)',
+    borderColor: 'rgba(186, 230, 253, 0.58)',
+    icon: '🔌',
+  },
+  {
+    id: 'ai-skills',
+    label: 'AI Skills',
+    description: 'Reusable agent skills, instructions and workflows',
+    color: '#ddd6fe',
+    bgColor: 'rgba(221, 214, 254, 0.12)',
+    borderColor: 'rgba(221, 214, 254, 0.58)',
+    icon: '🧩',
+  },
+  {
+    id: 'ai-plugins',
+    label: 'AI Plugins',
+    description: 'Plugins, extensions and tool integrations for AI assistants',
+    color: '#fbcfe8',
+    bgColor: 'rgba(251, 207, 232, 0.12)',
+    borderColor: 'rgba(251, 207, 232, 0.58)',
+    icon: '🔧',
+  },
+  {
+    id: 'ai-agents',
+    label: 'AI Agents',
+    description: 'Agentic systems, tool calling and multi-agent workflows',
+    color: '#a7f3d0',
+    bgColor: 'rgba(167, 243, 208, 0.12)',
+    borderColor: 'rgba(167, 243, 208, 0.58)',
+    icon: '🤖',
+  },
+  {
+    id: 'llm',
+    label: 'LLMs',
+    description: 'Large language models, inference, fine-tuning and evaluation',
+    color: '#fde68a',
+    bgColor: 'rgba(253, 230, 138, 0.12)',
+    borderColor: 'rgba(253, 230, 138, 0.58)',
+    icon: '🧠',
+  },
+  {
+    id: 'rag',
+    label: 'RAG',
+    description: 'Retrieval-augmented generation, embeddings and knowledge retrieval',
+    color: '#a5f3fc',
+    bgColor: 'rgba(165, 243, 252, 0.12)',
+    borderColor: 'rgba(165, 243, 252, 0.58)',
+    icon: '📚',
+  },
+  {
+    id: 'ai-tooling',
+    label: 'AI Tooling',
+    description: 'Developer tools, libraries and infrastructure for AI engineering',
+    color: '#fed7aa',
+    bgColor: 'rgba(254, 215, 170, 0.12)',
+    borderColor: 'rgba(254, 215, 170, 0.58)',
+    icon: '🛠️',
   },
   {
     id: 'backend',

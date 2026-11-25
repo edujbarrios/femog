@@ -5,10 +5,17 @@
 /**
  * All supported engineering discipline identifiers.
  * To add a new category, extend this union AND add an entry to
- * src/data/categories.ts — no other changes required.
+ * data/categories.ts — no other changes required.
  */
 export type CategoryId =
   | 'ai'
+  | 'mcp'
+  | 'ai-skills'
+  | 'ai-plugins'
+  | 'ai-agents'
+  | 'llm'
+  | 'rag'
+  | 'ai-tooling'
   | 'backend'
   | 'frontend'
   | 'fullstack'
@@ -72,7 +79,7 @@ export interface GitHubProfile {
   twitterUsername?: string;
   /** Optional public repositories featured on the profile card (maximum three). */
   featuredProjects?: FeaturedProjects;
-  /** Whether this person is the maintainer of FEMOG (pinned + special badge) */
+  /** Whether this person is the maintainer of FEMOG (shown on the default homepage + special badge) */
   maintainer?: boolean;
 }
 

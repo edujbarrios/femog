@@ -18,13 +18,14 @@ Inspired by [Remote In Tech](https://remoteintech.company/), FEMOG focuses on di
 
 ## Explore the directory
 
-- Search by name, GitHub username, biography, technology tag, company or location.
-- Filter by one or more of the 11 engineering disciplines. A profile matches if it belongs to **any** selected discipline; search further narrows the results.
-- Browse a responsive gallery of selectable engineer cards with avatars, usernames, biographies and discipline badges.
+- The homepage shows only FEMOG maintainers until you enter a search or select a category.
+- Search by name, GitHub username, biography, technology tag, company, location, category or featured project name/description. Every search word must match.
+- Open **Browse categories** to search and select one or more categories, including AI / ML, MCP, AI Skills, AI Plugins and AI Agents. A profile must match **any** selected category and all text-search terms when both filters are used.
+- Explore only matching engineer cards with avatars, usernames, biographies and discipline badges. Clearing filters returns to the maintainer showcase.
 - Select a card to open the full profile, including skills, all categories and up to three featured projects with optional one-sentence descriptions and direct repository links.
 - Use **Follow on GitHub** in the profile dialog to visit the engineer's GitHub profile and follow them there.
 - Close the dialog using its close button, Escape, or the backdrop; keyboard focus returns to the selected tile.
-- See the matching profile count and category counts calculated from the curated dataset.
+- See the matching profile count when search criteria are active.
 
 Profile details are stored in TypeScript files and filtering runs in the browser. No database, GitHub API token or account is needed to use the directory. Profile avatars are loaded from GitHub.
 
@@ -33,6 +34,13 @@ Profile details are stored in TypeScript files and filtering runs in the browser
 | Category | ID |
 | --- | --- |
 | AI / ML | `ai` |
+| MCP | `mcp` |
+| AI Skills | `ai-skills` |
+| AI Plugins | `ai-plugins` |
+| AI Agents | `ai-agents` |
+| LLMs | `llm` |
+| RAG | `rag` |
+| AI Tooling | `ai-tooling` |
 | Backend | `backend` |
 | Frontend | `frontend` |
 | Full Stack | `fullstack` |
@@ -126,7 +134,7 @@ Descriptions appear below the project name inside the clickable repository link 
 
 If fewer than three projects are available, include only the verified ones; omit `featuredProjects` or use an empty array if none are available. The three-project limit is enforced by the TypeScript profile type.
 
-The optional `maintainer` flag is reserved for FEMOG maintainers.
+The optional `maintainer` flag is reserved for FEMOG maintainers, who are the only profiles shown before a search or category selection.
 
 Choose an active, public GitHub profile with meaningful open-source contributions or technical work. Avoid duplicate entries, keep bios factual, and use relevant lowercase tags. Do not invent missing details.
 
@@ -136,7 +144,7 @@ Choose an active, public GitHub profile with meaningful open-source contribution
 2. Add its display definition to `CATEGORIES` in [data/categories.ts](data/categories.ts), including its label, description, colors and icon.
 3. Assign the new ID to relevant profiles in `data/profiles.ts`.
 
-The filter bar, category badges and counts use these definitions automatically; no UI logic changes are needed.
+The searchable category selector and category badges use these definitions automatically; no UI logic changes are needed.
 
 ## Project structure
 
